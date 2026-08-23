@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Current Work — Joseph Dangerfield</title>
+<meta name="description" content="Cryptidology, a concerto for piano and orchestra by Joseph Dangerfield, premiering May 2026 with the Bemidji Symphony Orchestra.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15161b;
+    --ink-soft:#20222a;
+    --ivory:#f6f2e9;
+    --ivory-dim:#ece5d4;
+    --paper:#fbf9f4;
+    --gold:#b8975a;
+    --gold-soft:#d9c393;
+    --line:#e3dcc9;
+    --text-dim:#6b6a63;
+    --max:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Archivo',sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:16px 0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .brand{
+    font-family:'Archivo',sans-serif;
+    font-size:19px;
+    letter-spacing:.04em;
+    color:var(--ink);
+  }
+  nav ul{display:flex;gap:36px;list-style:none;}
+  nav a{
+    font-size:13px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--ink);
+    transition:color .3s ease;
+  }
+  nav a:hover{color:var(--gold);}
+  nav a.active{color:var(--gold);}
+  .nav-toggle{display:none;}
+
+  /* ---------- SECTIONS (shared) ---------- */
+  section{scroll-margin-top:100px;}
+  .section-pad{padding:96px 0;}
+  .section-head{margin-bottom:40px;}
+  .eyebrow{
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  }
+
+  /* ---------- WORK HERO ---------- */
+  .work-hero{padding:172px 0 56px;border-bottom:1px solid var(--line);}
+  .work-hero .eyebrow{margin-bottom:16px;}
+  .work-hero h1{
+    font-size:clamp(38px,6vw,64px);
+    font-weight:400;
+    letter-spacing:-.01em;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .work-hero .subtitle{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    font-size:clamp(18px,2vw,22px);
+    color:var(--ink-soft);
+  }
+
+  /* ---------- PROGRAM NOTE ---------- */
+  .about-body p{
+    color:var(--text-dim);
+    font-size:16px;
+    line-height:1.85;
+    margin-bottom:22px;
+    max-width:62ch;
+  }
+  .about-body p:last-child{margin-bottom:0;}
+  .note-signoff{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:15px;
+    margin-top:28px;
+  }
+
+  /* ---------- PREMIERE BAR ---------- */
+  .premiere-bar{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:32px;
+    border-top:1px solid var(--line);
+    padding-top:36px;
+  }
+  .premiere-bar dt{
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin-bottom:8px;
+  }
+  .premiere-bar dd{
+    font-size:15px;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .premiere-bar dd a{
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--gold-soft);
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .premiere-bar dd a:hover{color:var(--gold);border-color:var(--gold);}
+
+  /* ---------- MOVEMENTS ---------- */
+  .movements{border-top:1px solid var(--line);}
+  .movement{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:40px;
+    padding:44px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .movement:last-child{border-bottom:none;}
+  .movement .num{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    font-size:15px;
+    color:var(--gold);
+    letter-spacing:.04em;
+  }
+  .movement h3{
+    font-size:clamp(21px,2.4vw,26px);
+    font-weight:400;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .movement p{
+    color:var(--text-dim);
+    font-size:15.5px;
+    line-height:1.8;
+    max-width:66ch;
+  }
+
+  /* ---------- SCORE ---------- */
+  .score-gallery{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  .score-figure{
+    border:1px solid var(--line);
+    background:var(--ivory);
+    padding:20px 18px 26px;
+    text-align:center;
+    color:var(--text-dim);
+    font-size:14px;
+    letter-spacing:.02em;
+  }
+  .score-figure img{width:100%;margin:0 auto;border:1px solid var(--line);box-shadow:0 24px 48px -24px rgba(21,22,27,0.25);}
+  .score-figure figcaption{margin-top:16px;font-size:12.5px;color:var(--text-dim);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    nav{position:fixed;inset:0;top:0;background:var(--ink);flex-direction:column;padding:110px 32px 40px;transform:translateY(-100%);transition:transform .4s ease;z-index:90;}
+    nav.open{transform:translateY(0);}
+    nav ul{flex-direction:column;gap:26px;}
+    nav a{color:var(--ivory);font-size:16px;}
+    .nav-toggle{
+      display:flex;flex-direction:column;gap:5px;
+      width:26px;z-index:110;cursor:pointer;background:none;border:none;
+    }
+    .nav-toggle span{height:1px;background:var(--ink);transition:background .3s;}
+    .work-hero{padding:140px 0 40px;}
+    .movement{grid-template-columns:1fr;gap:10px;}
+    .premiere-bar{grid-template-columns:1fr 1fr;gap:28px;}
+    .score-gallery{grid-template-columns:1fr;}
+    .section-pad{padding:64px 0;}
+  }
+  @media (min-width:861px) and (max-width:1080px){
+    .score-gallery{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="index.html" class="brand">Joseph Dangerfield</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="siteNav">
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="current-work.html" class="active">Current Work</a></li>
+        <li><a href="works.html">Works</a></li>
+        <li><a href="index.html#listen">Listen</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="work-hero">
+  <div class="wrap">
+    <div class="eyebrow">Current Work</div>
+    <h1 class="serif">Cryptidology</h1>
+    <div class="subtitle">A Concerto for Piano and Orchestra</div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="about-body">
+      <p><em>Cryptidology</em> is a work that represents some of the stories and folklore of my native West Virginia.</p>
+    </div>
+  </div>
+</section>
+
+<section class="movements section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Movements</div>
+    </div>
+    <div class="movements">
+      <div class="movement">
+        <div class="num">I.</div>
+        <div>
+          <h3 class="serif">Mothman Commeth</h3>
+          <p>An exploration in timbre and color built around the Mothman legend — a seven-foot, red-eyed, winged creature said to have appeared during the collapse of the Silver Bridge in Point Pleasant, West Virginia, in 1967. In Appalachian folklore, its appearance is taken as an omen of disaster to come.</p>
+        </div>
+      </div>
+      <div class="movement">
+        <div class="num">II.</div>
+        <div>
+          <h3 class="serif">Zona's Lullaby</h3>
+          <p>Drawn from the story of Elva Zona Heaster Shue, murdered by her husband in 1897. Ruled a natural death until her mother's testimony — that Zona's spirit appeared to her and revealed a broken neck — led to an exhumation that confirmed it. The only known case in U.S. history in which testimony from a spirit helped convict a murderer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Premiere</div>
+    </div>
+    <div class="premiere-bar">
+      <div>
+        <dt>Orchestra</dt>
+        <dd><a href="https://www.bemidjisymphony.org/" target="_blank" rel="noopener">Bemidji Symphony Orchestra</a></dd>
+      </div>
+      <div>
+        <dt>Conductor</dt>
+        <dd><a href="https://www.beverlyeverett.org/" target="_blank" rel="noopener">Beverly Everett</a></dd>
+      </div>
+      <div>
+        <dt>Piano Soloist</dt>
+        <dd><a href="https://annduhamel.com/" target="_blank" rel="noopener">Ann DuHamel</a></dd>
+      </div>
+      <div>
+        <dt>Date</dt>
+        <dd>May 2026</dd>
+      </div>
+      <div>
+        <dt>Instrumentation</dt>
+        <dd>Solo piano and full orchestra</dd>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Score</div>
+    </div>
+    <div class="score-gallery">
+      <figure class="score-figure">
+        <img src="assets/score-p33.png" alt="A page from the full orchestral score of Cryptidology, showing rehearsal marks 211–216 with dense activity across winds, brass, percussion, piano, and strings.">
+        <figcaption>p. 33 (rehearsal 211–216)</figcaption>
+      </figure>
+      <figure class="score-figure">
+        <img src="assets/score-p35.png" alt="A page from the full orchestral score of Cryptidology, showing rehearsal marks 228–237 with extended techniques and varied percussion including truck spring, temple bowls, and glockenspiel.">
+        <figcaption>p. 35 (rehearsal 228–237)</figcaption>
+      </figure>
+      <figure class="score-figure">
+        <img src="assets/score-p49.png" alt="A page from the full orchestral score of Cryptidology, showing rehearsal marks 70–81 with vibraphone, gong, bass drum, and piano entrances.">
+        <figcaption>p. 49 (rehearsal 70–81)</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('siteNav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Works — Joseph Dangerfield</title>
+<meta name="description" content="A catalog of concert works by composer Joseph Dangerfield, 1997–present.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15161b;
+    --ink-soft:#20222a;
+    --ivory:#f6f2e9;
+    --ivory-dim:#ece5d4;
+    --paper:#fbf9f4;
+    --gold:#b8975a;
+    --gold-soft:#d9c393;
+    --line:#e3dcc9;
+    --text-dim:#6b6a63;
+    --max:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Archivo',sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:16px 0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .brand{
+    font-family:'Archivo',sans-serif;
+    font-size:19px;
+    letter-spacing:.04em;
+    color:var(--ink);
+  }
+  nav ul{display:flex;gap:36px;list-style:none;}
+  nav a{
+    font-size:13px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--ink);
+    transition:color .3s ease;
+  }
+  nav a:hover{color:var(--gold);}
+  nav a.active{color:var(--gold);}
+  .nav-toggle{display:none;}
+
+  /* ---------- SECTIONS (shared) ---------- */
+  section{scroll-margin-top:100px;}
+  .section-pad{padding:56px 0 96px;}
+  .eyebrow{
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  }
+
+  /* ---------- WORKS HERO ---------- */
+  .works-hero{padding:172px 0 48px;border-bottom:1px solid var(--line);}
+  .works-hero .eyebrow{margin-bottom:16px;}
+  .works-hero h1{
+    font-size:clamp(38px,6vw,64px);
+    font-weight:400;
+    letter-spacing:-.01em;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .works-hero p{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    font-size:clamp(18px,2vw,22px);
+    color:var(--ink-soft);
+    max-width:48ch;
+  }
+
+  /* ---------- CONTROLS ---------- */
+  .controls{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:36px;
+  }
+  .search-field{position:relative;flex:1;min-width:220px;max-width:360px;}
+  .search-field input{
+    width:100%;
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+    color:var(--ink);
+    background:transparent;
+    border:none;
+    border-bottom:1px solid var(--line);
+    padding:10px 2px;
+  }
+  .search-field input:focus{outline:none;border-color:var(--gold);}
+  .search-field input::placeholder{color:var(--text-dim);opacity:.7;}
+  .cat-filters{display:flex;flex-wrap:wrap;gap:10px;}
+  .cat-btn{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    background:transparent;
+    border:1px solid var(--line);
+    padding:8px 16px;
+    cursor:pointer;
+    transition:color .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .cat-btn:hover{color:var(--ink);border-color:var(--ink-soft);}
+  .cat-btn.active{color:var(--ink);background:var(--gold-soft);border-color:var(--gold-soft);}
+
+  .results-count{
+    font-size:12.5px;
+    color:var(--text-dim);
+    margin-bottom:18px;
+  }
+
+  /* ---------- WORKS LIST ---------- */
+  .works-list{border-top:1px solid var(--line);}
+  .work-row-head{
+    display:grid;
+    grid-template-columns:2.4fr 2.2fr .7fr .6fr;
+    gap:24px;
+    padding:12px 0;
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    border-bottom:1px solid var(--line);
+  }
+  .work-row{
+    display:grid;
+    grid-template-columns:2.4fr 2.2fr .7fr .6fr;
+    gap:24px;
+    padding:18px 0;
+    border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .work-row.hide{display:none;}
+  .w-title{display:flex;flex-direction:column;gap:4px;}
+  .w-name{
+    font-family:'Archivo',sans-serif;
+    font-size:17px;
+    color:var(--ink);
+  }
+  .w-name a{
+    color:inherit;
+    border-bottom:1px solid transparent;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  .w-name a:hover{color:var(--gold);border-color:var(--gold-soft);}
+  .w-cat{
+    font-size:10.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .w-instr{font-size:14.5px;color:var(--text-dim);}
+  .w-dur{font-size:14.5px;color:var(--text-dim);}
+  .w-year{font-size:14.5px;color:var(--text-dim);}
+  .no-results{
+    padding:32px 0;
+    color:var(--text-dim);
+    font-size:14.5px;
+    display:none;
+  }
+  .no-results.show{display:block;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    nav{position:fixed;inset:0;top:0;background:var(--ink);flex-direction:column;padding:110px 32px 40px;transform:translateY(-100%);transition:transform .4s ease;z-index:90;}
+    nav.open{transform:translateY(0);}
+    nav ul{flex-direction:column;gap:26px;}
+    nav a{color:var(--ivory);font-size:16px;}
+    .nav-toggle{
+      display:flex;flex-direction:column;gap:5px;
+      width:26px;z-index:110;cursor:pointer;background:none;border:none;
+    }
+    .nav-toggle span{height:1px;background:var(--ink);transition:background .3s;}
+    .works-hero{padding:140px 0 36px;}
+    .section-pad{padding:40px 0 64px;}
+    .controls{flex-direction:column;align-items:flex-start;}
+    .search-field{max-width:none;width:100%;}
+    .work-row-head{display:none;}
+    .work-row{
+      grid-template-columns:1fr;
+      gap:6px;
+      padding:20px 0;
+    }
+    .w-instr::before{content:"Instrumentation: ";color:var(--text-dim);}
+    .w-dur::before{content:"Duration: ";color:var(--text-dim);}
+    .w-year::before{content:"Year: ";color:var(--text-dim);}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="index.html" class="brand">Joseph Dangerfield</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="siteNav">
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="current-work.html">Current Work</a></li>
+        <li><a href="works.html" class="active">Works</a></li>
+        <li><a href="index.html#listen">Listen</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="works-hero">
+  <div class="wrap">
+    <div class="eyebrow">Works</div>
+    <h1 class="serif">Works</h1>
+    <p>A catalog of concert works, 1997–present.</p>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="controls">
+      <div class="search-field">
+        <input type="text" id="workSearch" placeholder="Search titles or instrumentation…" autocomplete="off">
+      </div>
+      <div class="cat-filters" id="catFilters">
+        <button class="cat-btn active" data-cat="all">All</button>
+        <button class="cat-btn" data-cat="solo">Solo</button>
+        <button class="cat-btn" data-cat="chamber">Chamber</button>
+        <button class="cat-btn" data-cat="large-ensemble">Large Ensemble</button>
+        <button class="cat-btn" data-cat="vocal">Vocal</button>
+        <button class="cat-btn" data-cat="full-length-musical">Full-Length Musical</button>
+      </div>
+    </div>
+
+    <div class="results-count" id="resultsCount">50 works</div>
+
+    <div class="works-list">
+      <div class="work-row-head">
+        <div>Title</div>
+        <div>Instrumentation</div>
+        <div>Duration</div>
+        <div>Year</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name"><a href="works/pitter-patter-piper.html">Prélude to the Pitter-Patter of a Piper</a></span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Flute ensemble (septet, quintet, quartet, or nonet)</div>
+        <div class="w-dur">4′</div>
+        <div class="w-year">2025</div>
+      </div>
+
+      <div class="work-row" data-category="full-length-musical">
+        <div class="w-title"><span class="w-name"><a href="works/john-henry.html">John Henry</a></span><span class="w-cat">Full-Length Musical</span></div>
+        <div class="w-instr">Full-length musical for small ensemble and vocal cast, in two acts</div>
+        <div class="w-dur">1 hr 45 min</div>
+        <div class="w-year">2025</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name"><a href="works/moon-phase.html">Moon Phase</a></span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Flute (doubling alto flute), cello, and piano</div>
+        <div class="w-dur">11′</div>
+        <div class="w-year">2018</div>
+      </div>
+
+      <div class="work-row" data-category="large-ensemble">
+        <div class="w-title"><span class="w-name"><a href="works/valhol.html">Valhol</a></span><span class="w-cat">Large Ensemble</span></div>
+        <div class="w-instr">Concert band, Grade 5</div>
+        <div class="w-dur">7′</div>
+        <div class="w-year">2020</div>
+      </div>
+
+      <div class="work-row" data-category="solo">
+        <div class="w-title"><span class="w-name"><a href="works/postcards.html">Postcards</a></span><span class="w-cat">Solo</span></div>
+        <div class="w-instr">Piano</div>
+        <div class="w-dur">10′</div>
+        <div class="w-year">2019</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name"><a href="works/color-schemes.html">Color Schemes</a></span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Two flutes and piano</div>
+        <div class="w-dur">12′</div>
+        <div class="w-year">2019</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">The Solids</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Spatialized clarinet ensemble</div>
+        <div class="w-dur">12′</div>
+        <div class="w-year">2017</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Shadow Tableaux</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Cello and piano</div>
+        <div class="w-dur">10′</div>
+        <div class="w-year">2017</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Aesgir</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Bass clarinet and marimba</div>
+        <div class="w-dur">6′</div>
+        <div class="w-year">2016</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Il Muro, Il Lupo, e La Croce</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Clarinet, viola, and piano</div>
+        <div class="w-dur">8′</div>
+        <div class="w-year">2016</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Apache Fire Dance</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Flute and piano</div>
+        <div class="w-dur">8′</div>
+        <div class="w-year">2016</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">La défi</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Saxophone and piano</div>
+        <div class="w-dur">5′</div>
+        <div class="w-year">2015</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Knot</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Electric flute, electric cello, and electric piano</div>
+        <div class="w-dur">13′</div>
+        <div class="w-year">2014</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name"><a href="works/broken-obelisk.html">Broken Obelisk</a></span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Alto saxophone and piano</div>
+        <div class="w-dur">7′</div>
+        <div class="w-year">2013</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">The Wild</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Piano and small ensemble</div>
+        <div class="w-dur">15′</div>
+        <div class="w-year">2013</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Piano Trio No. 1</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Violin, violoncello, and piano</div>
+        <div class="w-dur">12′</div>
+        <div class="w-year">2012</div>
+      </div>
+
+      <div class="work-row" data-category="vocal">
+        <div class="w-title"><span class="w-name">The Anthill</span><span class="w-cat">Vocal</span></div>
+        <div class="w-instr">Soprano, baritone, narrator, and piano</div>
+        <div class="w-dur">35′</div>
+        <div class="w-year">2011</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Three Sisters</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Incidental music for Chekhov's play — violin, cello, and piano</div>
+        <div class="w-dur">—</div>
+        <div class="w-year">2010</div>
+      </div>
+
+      <div class="work-row" data-category="large-ensemble">
+        <div class="w-title"><span class="w-name">Two Vestiges</span><span class="w-cat">Large Ensemble</span></div>
+        <div class="w-instr">Chamber orchestra</div>
+        <div class="w-dur">12′</div>
+        <div class="w-year">2010</div>
+      </div>
+
+      <div class="work-row" data-category="solo">
+        <div class="w-title"><span class="w-name"><a href="works/microsuite.html">MicroSuite</a></span><span class="w-cat">Solo</span></div>
+        <div class="w-instr">Organ</div>
+        <div class="w-dur">8′</div>
+        <div class="w-year">2009</div>
+      </div>
+
+      <div class="work-row" data-category="solo">
+        <div class="w-title"><span class="w-name"><a href="works/remnants.html">Remnants</a></span><span class="w-cat">Solo</span></div>
+        <div class="w-instr">Piano</div>
+        <div class="w-dur">9′</div>
+        <div class="w-year">2009</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Nomina Sunt Omina</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Violin and cello</div>
+        <div class="w-dur">11′</div>
+        <div class="w-year">2009</div>
+      </div>
+
+      <div class="work-row" data-category="large-ensemble">
+        <div class="w-title"><span class="w-name">Crux Orthodoxa</span><span class="w-cat">Large Ensemble</span></div>
+        <div class="w-instr">Violin and orchestra (also arr. for violin and piano)</div>
+        <div class="w-dur">9–10′</div>
+        <div class="w-year">2008–09</div>
+      </div>
+
+      <div class="work-row" data-category="vocal">
+        <div class="w-title"><span class="w-name">Bones in a Landscape</span><span class="w-cat">Vocal</span></div>
+        <div class="w-instr">Soprano and piano</div>
+        <div class="w-dur">3′</div>
+        <div class="w-year">2008</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Three Sets</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Flute, saxophone, and piano</div>
+        <div class="w-dur">8′</div>
+        <div class="w-year">2008</div>
+      </div>
+
+      <div class="work-row" data-category="vocal">
+        <div class="w-title"><span class="w-name">Prayers</span><span class="w-cat">Vocal</span></div>
+        <div class="w-instr">SATB chorus</div>
+        <div class="w-dur">6′</div>
+        <div class="w-year">2008</div>
+      </div>
+
+      <div class="work-row" data-category="large-ensemble">
+        <div class="w-title"><span class="w-name"><a href="works/winter-rites.html">Winter Rites</a></span><span class="w-cat">Large Ensemble</span></div>
+        <div class="w-instr">Concertino for violoncello and 15 instruments</div>
+        <div class="w-dur">18′</div>
+        <div class="w-year">2008</div>
+      </div>
+
+      <div class="work-row" data-category="solo">
+        <div class="w-title"><span class="w-name">Tryglyph</span><span class="w-cat">Solo</span></div>
+        <div class="w-instr">Piano</div>
+        <div class="w-dur">5′</div>
+        <div class="w-year">2007</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Pathways</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Violin and piano</div>
+        <div class="w-dur">12′</div>
+        <div class="w-year">2007</div>
+      </div>
+
+      <div class="work-row" data-category="large-ensemble">
+        <div class="w-title"><span class="w-name">Ascent</span><span class="w-cat">Large Ensemble</span></div>
+        <div class="w-instr">Symphonic band (Grade 4.5)</div>
+        <div class="w-dur">3′</div>
+        <div class="w-year">2007</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Piano Quintet</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Piano quintet</div>
+        <div class="w-dur">10′</div>
+        <div class="w-year">2006</div>
+      </div>
+
+      <div class="work-row" data-category="large-ensemble">
+        <div class="w-title"><span class="w-name">Slumber My Darling</span><span class="w-cat">Large Ensemble</span></div>
+        <div class="w-instr">Orchestra (arr. of Stephen Foster, for Cedar Rapids Symphony)</div>
+        <div class="w-dur">—</div>
+        <div class="w-year">2006</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Dreams of Fin</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Violin and piano</div>
+        <div class="w-dur">8′</div>
+        <div class="w-year">2006</div>
+      </div>
+
+      <div class="work-row" data-category="large-ensemble">
+        <div class="w-title"><span class="w-name">The Waves Roll On, Thundering and Shimmering</span><span class="w-cat">Large Ensemble</span></div>
+        <div class="w-instr">Large ensemble</div>
+        <div class="w-dur">15′</div>
+        <div class="w-year">2005</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Stone Memories</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Clarinet, violin, cello, and piano</div>
+        <div class="w-dur">11′</div>
+        <div class="w-year">2004</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Klimmen</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Brass ensemble</div>
+        <div class="w-dur">6′</div>
+        <div class="w-year">2003</div>
+      </div>
+
+      <div class="work-row" data-category="solo">
+        <div class="w-title"><span class="w-name">Framework</span><span class="w-cat">Solo</span></div>
+        <div class="w-instr">Cello and Max/MSP</div>
+        <div class="w-dur">8′</div>
+        <div class="w-year">2003</div>
+      </div>
+
+      <div class="work-row" data-category="solo">
+        <div class="w-title"><span class="w-name">Eadem Mutato Resurgo</span><span class="w-cat">Solo</span></div>
+        <div class="w-instr">Piano</div>
+        <div class="w-dur">6′</div>
+        <div class="w-year">2003</div>
+      </div>
+
+      <div class="work-row" data-category="solo">
+        <div class="w-title"><span class="w-name">Transformations</span><span class="w-cat">Solo</span></div>
+        <div class="w-instr">4-channel electroacoustic</div>
+        <div class="w-dur">8′</div>
+        <div class="w-year">2002</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Two Paths</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Two violins</div>
+        <div class="w-dur">7′</div>
+        <div class="w-year">2002</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Zdravoye Zreniye</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Mixed chamber ensemble</div>
+        <div class="w-dur">15′</div>
+        <div class="w-year">2002</div>
+      </div>
+
+      <div class="work-row" data-category="solo">
+        <div class="w-title"><span class="w-name">Difference Line</span><span class="w-cat">Solo</span></div>
+        <div class="w-instr">Violin and Max/MSP</div>
+        <div class="w-dur">6′</div>
+        <div class="w-year">2002</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Tristimulus Vertex</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Clarinet, violin, cello, and piano</div>
+        <div class="w-dur">5′</div>
+        <div class="w-year">2001</div>
+      </div>
+
+      <div class="work-row" data-category="large-ensemble">
+        <div class="w-title"><span class="w-name">A Parable of Shadows</span><span class="w-cat">Large Ensemble</span></div>
+        <div class="w-instr">Chamber symphony</div>
+        <div class="w-dur">7′</div>
+        <div class="w-year">2001</div>
+      </div>
+
+      <div class="work-row" data-category="solo">
+        <div class="w-title"><span class="w-name">Fracture</span><span class="w-cat">Solo</span></div>
+        <div class="w-instr">Clarinet</div>
+        <div class="w-dur">4′</div>
+        <div class="w-year">2001</div>
+      </div>
+
+      <div class="work-row" data-category="solo">
+        <div class="w-title"><span class="w-name">Channels</span><span class="w-cat">Solo</span></div>
+        <div class="w-instr">Electroacoustic music</div>
+        <div class="w-dur">6′</div>
+        <div class="w-year">2000</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Divergence</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">String quartet</div>
+        <div class="w-dur">11′</div>
+        <div class="w-year">1999</div>
+      </div>
+
+      <div class="work-row" data-category="large-ensemble">
+        <div class="w-title"><span class="w-name">Voices from Beyond</span><span class="w-cat">Large Ensemble</span></div>
+        <div class="w-instr">Symphonic band</div>
+        <div class="w-dur">—</div>
+        <div class="w-year">1999</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Moods</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Violin and piano</div>
+        <div class="w-dur">9′</div>
+        <div class="w-year">1998</div>
+      </div>
+
+      <div class="work-row" data-category="chamber">
+        <div class="w-title"><span class="w-name">Civil War</span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">Flute, clarinet, oboe, bassoon, and cello</div>
+        <div class="w-dur">12′</div>
+        <div class="w-year">1997</div>
+      </div>
+
+    </div>
+
+    <p class="no-results" id="noResults">No works match your search.</p>
+  </div>
+</section>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('siteNav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+
+  const searchInput = document.getElementById('workSearch');
+  const catButtons = document.querySelectorAll('.cat-btn');
+  const rows = document.querySelectorAll('.work-row');
+  const resultsCount = document.getElementById('resultsCount');
+  const noResults = document.getElementById('noResults');
+  let activeCat = 'all';
+
+  function applyFilters(){
+    const query = searchInput.value.trim().toLowerCase();
+    let visible = 0;
+    rows.forEach(row => {
+      const matchesCat = activeCat === 'all' || row.dataset.category === activeCat;
+      const matchesSearch = !query || row.textContent.toLowerCase().includes(query);
+      const show = matchesCat && matchesSearch;
+      row.classList.toggle('hide', !show);
+      if(show) visible++;
+    });
+    resultsCount.textContent = visible + (visible === 1 ? ' work' : ' works');
+    noResults.classList.toggle('show', visible === 0);
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+
+  catButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      catButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCat = btn.dataset.cat;
+      applyFilters();
+    });
+  });
+</script>
+
+</body>
+</html>

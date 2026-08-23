@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Joseph Dangerfield</title>
+<meta name="description" content="About Joseph Dangerfield — composer, pianist, and conductor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15161b;
+    --ink-soft:#20222a;
+    --ivory:#f6f2e9;
+    --ivory-dim:#ece5d4;
+    --paper:#fbf9f4;
+    --gold:#b8975a;
+    --gold-soft:#d9c393;
+    --line:#e3dcc9;
+    --text-dim:#6b6a63;
+    --max:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Archivo',sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:16px 0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .brand{
+    font-family:'Archivo',sans-serif;
+    font-size:19px;
+    letter-spacing:.04em;
+    color:var(--ink);
+  }
+  nav ul{display:flex;gap:36px;list-style:none;}
+  nav a{
+    font-size:13px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--ink);
+    transition:color .3s ease;
+  }
+  nav a:hover{color:var(--gold);}
+  nav a.active{color:var(--gold);}
+  .nav-toggle{display:none;}
+
+  /* ---------- PRESS QUOTE ---------- */
+  .press-quote{
+    padding:172px 0 64px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+  }
+  .press-quote p{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(20px,2.6vw,28px);
+    line-height:1.5;
+    color:var(--ink-soft);
+    max-width:680px;
+    margin:0 auto 18px;
+  }
+  .press-quote cite{
+    font-style:normal;
+    font-size:13px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .press-quote cite em{font-style:italic;}
+
+  /* ---------- SECTIONS (shared) ---------- */
+  section{scroll-margin-top:100px;}
+  .section-pad{padding:96px 0;}
+  .section-head{margin-bottom:56px;}
+  .section-head .eyebrow{
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;
+  }
+  .section-head h2{
+    font-size:clamp(30px,4vw,42px);
+    font-weight:400;
+    color:var(--ink);
+    letter-spacing:-.01em;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--paper);}
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.35fr .65fr;
+    gap:72px;
+    align-items:start;
+  }
+  .about-lead{
+    font-family:'Archivo',sans-serif;
+    font-weight:400;
+    font-style:italic;
+    font-size:23px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    margin-bottom:26px;
+  }
+  .about-body p{
+    color:var(--text-dim);
+    font-size:16px;
+    line-height:1.85;
+    margin-bottom:22px;
+    max-width:60ch;
+  }
+  .about-body p:last-child{margin-bottom:0;}
+  .facts{display:flex;flex-direction:column;gap:36px;}
+  .fact-group h3{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--line);
+  }
+  .fact-group ul{list-style:none;}
+  .fact-group li{
+    font-size:14.5px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    padding:9px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .fact-group li:last-child{border-bottom:none;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    nav{position:fixed;inset:0;top:0;background:var(--ink);flex-direction:column;padding:110px 32px 40px;transform:translateY(-100%);transition:transform .4s ease;z-index:90;}
+    nav.open{transform:translateY(0);}
+    nav ul{flex-direction:column;gap:26px;}
+    nav a{color:var(--ivory);font-size:16px;}
+    .nav-toggle{
+      display:flex;flex-direction:column;gap:5px;
+      width:26px;z-index:110;cursor:pointer;background:none;border:none;
+    }
+    .nav-toggle span{height:1px;background:var(--ink);transition:background .3s;}
+    .press-quote{padding:140px 0 48px;}
+    .about-grid{grid-template-columns:1fr;gap:48px;}
+    .section-pad{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="index.html" class="brand">Joseph Dangerfield</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="siteNav">
+      <ul>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="current-work.html">Current Work</a></li>
+        <li><a href="works.html">Works</a></li>
+        <li><a href="index.html#listen">Listen</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="press-quote">
+  <div class="wrap">
+    <p>&ldquo;Dangerfield has a keen ear for sonority&hellip;Everything is beautiful.&rdquo;</p>
+    <cite>Colin Clark, <em>Fanfare</em></cite>
+  </div>
+</section>
+
+<section id="about" class="about section-pad">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="section-head">
+          <div class="eyebrow">About</div>
+        </div>
+        <div class="about-body">
+          <p class="about-lead">Joseph Dangerfield has lived and worked professionally in Italy, Germany, Russia, China, Holland, and New York.</p>
+          <p>He is the recipient of many awards and recognitions, including the Aaron Copland Award, the Indianapolis Chamber Orchestra's Composition Prize, the Henry and Parker Pelzer Prize for Excellence in Composition, and the Young and Emerging Composers Award. He was a Fulbright Scholar to the Russian Federation and the Netherlands, where he served as composer-in-residence with the Ensemble Studio New Music at the famed Moscow Conservatory, and lectured at Maastricht Conservatorium. He has been a resident in the Leighton Studios of the prestigious Banff Centre in Alberta, Canada, and the Yaddo Colony in New York. Recordings of his works are available on the Albany Records label, and his music is published by American Concert Editions.</p>
+          <p>Over the past several years his creative voice has garnered much attention, with performances of his works throughout the United States and abroad. American presenters include Carnegie Hall, the Eastman School of Music, Boston Conservatory, the San Francisco New Music Festival, and the Society for Electro-Acoustic Music, among others. His instrumental and chamber compositions have also been performed at such international venues as the Moscow Conservatory, the Vienna Konzerthaus, the Conservatoire à rayonnement régional de Paris, the Frankfurter KünstlerKlub, the Conservatorio di Milano, and in Cairo, Egypt.</p>
+          <p>Originally trained as a pianist, Dangerfield is also active as a performer and conductor throughout the United States. He has conducted chamber and orchestral concerts of music both new and from the canon in New York, Vienna, and Prague, among other cities, and has served on the faculty of West Virginia University, the University of Florida, McNeese State University, and Coe College. He currently resides in Pittsburgh with his wife, Ami, and their three children.</p>
+        </div>
+      </div>
+      <aside class="facts">
+        <div class="fact-group">
+          <h3>Selected Recognition</h3>
+          <ul>
+            <li>Aaron Copland Award</li>
+            <li>Indianapolis Chamber Orchestra Composition Prize</li>
+            <li>Henry and Parker Pelzer Prize for Excellence in Composition</li>
+            <li>Young and Emerging Composers Award</li>
+            <li>Fulbright Scholar — Russian Federation &amp; Netherlands</li>
+          </ul>
+        </div>
+        <div class="fact-group">
+          <h3>Residencies</h3>
+          <ul>
+            <li>Leighton Studios, The Banff Centre</li>
+            <li>Yaddo Colony, New York</li>
+            <li>Composer-in-Residence, Ensemble Studio New Music, Moscow Conservatory</li>
+          </ul>
+        </div>
+        <div class="fact-group">
+          <h3>Recordings &amp; Publishing</h3>
+          <ul>
+            <li>Albany Records</li>
+            <li>American Concert Editions</li>
+          </ul>
+        </div>
+        <div class="fact-group">
+          <h3>Faculty Appointments</h3>
+          <ul>
+            <li>West Virginia University</li>
+            <li>University of Florida</li>
+            <li>McNeese State University</li>
+            <li>Coe College</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('siteNav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
