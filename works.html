@@ -125,12 +125,6 @@
   .cat-btn:hover{color:var(--ink);border-color:var(--ink-soft);}
   .cat-btn.active{color:var(--ink);background:var(--gold-soft);border-color:var(--gold-soft);}
 
-  .results-count{
-    font-size:12.5px;
-    color:var(--text-dim);
-    margin-bottom:18px;
-  }
-
   /* ---------- WORKS LIST ---------- */
   .works-list{border-top:1px solid var(--line);}
   .work-row-head{
@@ -250,10 +244,9 @@
         <button class="cat-btn" data-cat="large-ensemble">Large Ensemble</button>
         <button class="cat-btn" data-cat="vocal">Vocal</button>
         <button class="cat-btn" data-cat="full-length-musical">Full-Length Musical</button>
+        <button class="cat-btn" data-cat="media">Media</button>
       </div>
     </div>
-
-    <div class="results-count" id="resultsCount">50 works</div>
 
     <div class="works-list">
       <div class="work-row-head">
@@ -303,6 +296,13 @@
         <div class="w-instr">Two flutes and piano</div>
         <div class="w-dur">12′</div>
         <div class="w-year">2019</div>
+      </div>
+
+      <div class="work-row" data-category="vocal">
+        <div class="w-title"><span class="w-name">Two Songs</span><span class="w-cat">Vocal</span></div>
+        <div class="w-instr">Voice and piano</div>
+        <div class="w-dur">10′</div>
+        <div class="w-year">2018</div>
       </div>
 
       <div class="work-row" data-category="chamber">
@@ -368,6 +368,13 @@
         <div class="w-year">2013</div>
       </div>
 
+      <div class="work-row" data-category="solo">
+        <div class="w-title"><span class="w-name">Geometric Etudes</span><span class="w-cat">Solo</span></div>
+        <div class="w-instr">Piano</div>
+        <div class="w-dur">15′</div>
+        <div class="w-year">2013</div>
+      </div>
+
       <div class="work-row" data-category="chamber">
         <div class="w-title"><span class="w-name">Piano Trio No. 1</span><span class="w-cat">Chamber</span></div>
         <div class="w-instr">Violin, violoncello, and piano</div>
@@ -382,11 +389,25 @@
         <div class="w-year">2011</div>
       </div>
 
-      <div class="work-row" data-category="chamber">
-        <div class="w-title"><span class="w-name">Three Sisters</span><span class="w-cat">Chamber</span></div>
+      <div class="work-row" data-category="media">
+        <div class="w-title"><span class="w-name">Ambrosia</span><span class="w-cat">Media</span></div>
+        <div class="w-instr">Film score</div>
+        <div class="w-dur">—</div>
+        <div class="w-year">—</div>
+      </div>
+
+      <div class="work-row" data-category="media">
+        <div class="w-title"><span class="w-name">Three Sisters</span><span class="w-cat">Media</span></div>
         <div class="w-instr">Incidental music for Chekhov's play — violin, cello, and piano</div>
         <div class="w-dur">—</div>
         <div class="w-year">2010</div>
+      </div>
+
+      <div class="work-row" data-category="media">
+        <div class="w-title"><span class="w-name">Spokes of Venus</span><span class="w-cat">Media</span></div>
+        <div class="w-instr">Fixed media and voice</div>
+        <div class="w-dur">4′</div>
+        <div class="w-year">—</div>
       </div>
 
       <div class="work-row" data-category="large-ensemble">
@@ -431,13 +452,6 @@
         <div class="w-year">2008</div>
       </div>
 
-      <div class="work-row" data-category="chamber">
-        <div class="w-title"><span class="w-name">Three Sets</span><span class="w-cat">Chamber</span></div>
-        <div class="w-instr">Flute, saxophone, and piano</div>
-        <div class="w-dur">8′</div>
-        <div class="w-year">2008</div>
-      </div>
-
       <div class="work-row" data-category="vocal">
         <div class="w-title"><span class="w-name">Prayers</span><span class="w-cat">Vocal</span></div>
         <div class="w-instr">SATB chorus</div>
@@ -450,13 +464,6 @@
         <div class="w-instr">Concertino for violoncello and 15 instruments</div>
         <div class="w-dur">18′</div>
         <div class="w-year">2008</div>
-      </div>
-
-      <div class="work-row" data-category="solo">
-        <div class="w-title"><span class="w-name">Tryglyph</span><span class="w-cat">Solo</span></div>
-        <div class="w-instr">Piano</div>
-        <div class="w-dur">5′</div>
-        <div class="w-year">2007</div>
       </div>
 
       <div class="work-row" data-category="chamber">
@@ -474,17 +481,10 @@
       </div>
 
       <div class="work-row" data-category="chamber">
-        <div class="w-title"><span class="w-name">Piano Quintet</span><span class="w-cat">Chamber</span></div>
-        <div class="w-instr">Piano quintet</div>
+        <div class="w-title"><span class="w-name"><a href="works/piano-quintet.html">Piano Quintet</a></span><span class="w-cat">Chamber</span></div>
+        <div class="w-instr">2 violins, viola, violoncello, and piano</div>
         <div class="w-dur">10′</div>
-        <div class="w-year">2006</div>
-      </div>
-
-      <div class="work-row" data-category="large-ensemble">
-        <div class="w-title"><span class="w-name">Slumber My Darling</span><span class="w-cat">Large Ensemble</span></div>
-        <div class="w-instr">Orchestra (arr. of Stephen Foster, for Cedar Rapids Symphony)</div>
-        <div class="w-dur">—</div>
-        <div class="w-year">2006</div>
+        <div class="w-year">2007</div>
       </div>
 
       <div class="work-row" data-category="chamber">
@@ -508,27 +508,6 @@
         <div class="w-year">2004</div>
       </div>
 
-      <div class="work-row" data-category="chamber">
-        <div class="w-title"><span class="w-name">Klimmen</span><span class="w-cat">Chamber</span></div>
-        <div class="w-instr">Brass ensemble</div>
-        <div class="w-dur">6′</div>
-        <div class="w-year">2003</div>
-      </div>
-
-      <div class="work-row" data-category="solo">
-        <div class="w-title"><span class="w-name">Framework</span><span class="w-cat">Solo</span></div>
-        <div class="w-instr">Cello and Max/MSP</div>
-        <div class="w-dur">8′</div>
-        <div class="w-year">2003</div>
-      </div>
-
-      <div class="work-row" data-category="solo">
-        <div class="w-title"><span class="w-name">Eadem Mutato Resurgo</span><span class="w-cat">Solo</span></div>
-        <div class="w-instr">Piano</div>
-        <div class="w-dur">6′</div>
-        <div class="w-year">2003</div>
-      </div>
-
       <div class="work-row" data-category="solo">
         <div class="w-title"><span class="w-name">Transformations</span><span class="w-cat">Solo</span></div>
         <div class="w-instr">4-channel electroacoustic</div>
@@ -537,23 +516,9 @@
       </div>
 
       <div class="work-row" data-category="chamber">
-        <div class="w-title"><span class="w-name">Two Paths</span><span class="w-cat">Chamber</span></div>
-        <div class="w-instr">Two violins</div>
-        <div class="w-dur">7′</div>
-        <div class="w-year">2002</div>
-      </div>
-
-      <div class="work-row" data-category="chamber">
         <div class="w-title"><span class="w-name">Zdravoye Zreniye</span><span class="w-cat">Chamber</span></div>
         <div class="w-instr">Mixed chamber ensemble</div>
         <div class="w-dur">15′</div>
-        <div class="w-year">2002</div>
-      </div>
-
-      <div class="work-row" data-category="solo">
-        <div class="w-title"><span class="w-name">Difference Line</span><span class="w-cat">Solo</span></div>
-        <div class="w-instr">Violin and Max/MSP</div>
-        <div class="w-dur">6′</div>
         <div class="w-year">2002</div>
       </div>
 
@@ -576,13 +541,6 @@
         <div class="w-instr">Clarinet</div>
         <div class="w-dur">4′</div>
         <div class="w-year">2001</div>
-      </div>
-
-      <div class="work-row" data-category="solo">
-        <div class="w-title"><span class="w-name">Channels</span><span class="w-cat">Solo</span></div>
-        <div class="w-instr">Electroacoustic music</div>
-        <div class="w-dur">6′</div>
-        <div class="w-year">2000</div>
       </div>
 
       <div class="work-row" data-category="chamber">
@@ -634,7 +592,6 @@
   const searchInput = document.getElementById('workSearch');
   const catButtons = document.querySelectorAll('.cat-btn');
   const rows = document.querySelectorAll('.work-row');
-  const resultsCount = document.getElementById('resultsCount');
   const noResults = document.getElementById('noResults');
   let activeCat = 'all';
 
@@ -648,7 +605,6 @@
       row.classList.toggle('hide', !show);
       if(show) visible++;
     });
-    resultsCount.textContent = visible + (visible === 1 ? ' work' : ' works');
     noResults.classList.toggle('show', visible === 0);
   }
 
