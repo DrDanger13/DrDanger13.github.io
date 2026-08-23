@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Henry — Joseph Dangerfield</title>
+<meta name="description" content="John Henry, a new full-length musical with book and lyrics by Ruth Hernandez and music by Joseph Dangerfield, celebrating a West Virginia and American legend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15161b;
+    --ink-soft:#20222a;
+    --ivory:#f6f2e9;
+    --ivory-dim:#ece5d4;
+    --paper:#fbf9f4;
+    --gold:#b8975a;
+    --gold-soft:#d9c393;
+    --line:#e3dcc9;
+    --text-dim:#6b6a63;
+    --max:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Archivo',sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:16px 0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .brand{
+    font-family:'Archivo',sans-serif;
+    font-size:19px;
+    letter-spacing:.04em;
+    color:var(--ink);
+  }
+  nav ul{display:flex;gap:36px;list-style:none;}
+  nav a{
+    font-size:13px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--ink);
+    transition:color .3s ease;
+  }
+  nav a:hover{color:var(--gold);}
+  nav a.active{color:var(--gold);}
+  .nav-toggle{display:none;}
+
+  /* ---------- SECTIONS (shared) ---------- */
+  section{scroll-margin-top:100px;}
+  .section-pad{padding:96px 0;}
+  .section-head{margin-bottom:40px;}
+  .eyebrow{
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  }
+
+  /* ---------- WORK HERO ---------- */
+  .work-hero{padding:172px 0 56px;border-bottom:1px solid var(--line);}
+  .breadcrumb{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin-bottom:22px;
+    transition:color .25s ease;
+  }
+  .breadcrumb:hover{color:var(--gold);}
+  .work-hero .eyebrow{margin-bottom:16px;}
+  .work-hero h1{
+    font-size:clamp(38px,6vw,64px);
+    font-weight:400;
+    letter-spacing:-.01em;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .work-hero .subtitle{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    font-size:clamp(18px,2vw,22px);
+    color:var(--ink-soft);
+  }
+  .work-hero .credit{
+    margin-top:16px;
+    font-size:13.5px;
+    color:var(--text-dim);
+    line-height:1.7;
+  }
+  .hero-top-grid{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:48px;
+    align-items:start;
+  }
+  .score-cover{width:220px;flex-shrink:0;}
+  .score-cover img{
+    width:100%;
+    border:1px solid var(--line);
+    box-shadow:0 24px 48px -24px rgba(21,22,27,0.25);
+  }
+
+  /* ---------- COMPOSER'S NOTE / SYNOPSIS ---------- */
+  .about-body p{
+    color:var(--text-dim);
+    font-size:16px;
+    line-height:1.85;
+    margin-bottom:22px;
+    max-width:66ch;
+  }
+  .about-body p:last-child{margin-bottom:0;}
+  .about-body a{
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--gold-soft);
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .about-body a:hover{color:var(--gold);border-color:var(--gold);}
+  .note-signoff{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:15px;
+    margin-top:28px;
+  }
+
+  /* ---------- SCORE GALLERY ---------- */
+  .score-gallery{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  .score-figure{
+    border:1px solid var(--line);
+    background:var(--ivory);
+    padding:20px 18px 26px;
+    text-align:center;
+    color:var(--text-dim);
+    font-size:14px;
+    letter-spacing:.02em;
+  }
+  .score-figure img{width:100%;margin:0 auto;border:1px solid var(--line);box-shadow:0 24px 48px -24px rgba(21,22,27,0.25);}
+  .score-figure figcaption{margin-top:16px;font-size:12.5px;color:var(--text-dim);}
+
+  /* ---------- LISTEN (audio) ---------- */
+  .audio-player{
+    border:1px solid var(--line);
+    background:var(--ivory);
+    padding:32px;
+  }
+  .audio-player audio{
+    width:100%;
+    display:block;
+  }
+  .audio-caption{
+    margin-top:18px;
+    font-size:13px;
+    color:var(--text-dim);
+    letter-spacing:.01em;
+  }
+
+  /* ---------- DETAIL BAR ---------- */
+  .detail-bar{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:32px;
+    border-top:1px solid var(--line);
+    padding-top:36px;
+  }
+  .detail-bar dt{
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin-bottom:8px;
+  }
+  .detail-bar dd{
+    font-size:15px;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .detail-bar dd a{
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--gold-soft);
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .detail-bar dd a:hover{color:var(--gold);border-color:var(--gold);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    nav{position:fixed;inset:0;top:0;background:var(--ink);flex-direction:column;padding:110px 32px 40px;transform:translateY(-100%);transition:transform .4s ease;z-index:90;}
+    nav.open{transform:translateY(0);}
+    nav ul{flex-direction:column;gap:26px;}
+    nav a{color:var(--ivory);font-size:16px;}
+    .nav-toggle{
+      display:flex;flex-direction:column;gap:5px;
+      width:26px;z-index:110;cursor:pointer;background:none;border:none;
+    }
+    .nav-toggle span{height:1px;background:var(--ink);transition:background .3s;}
+    .work-hero{padding:140px 0 40px;}
+    .hero-top-grid{grid-template-columns:1fr;gap:28px;}
+    .score-cover{width:100%;max-width:280px;}
+    .detail-bar{grid-template-columns:1fr 1fr;gap:28px;}
+    .section-pad{padding:64px 0;}
+    .score-gallery{grid-template-columns:1fr;}
+    .audio-player{padding:24px 20px;}
+  }
+  @media (min-width:861px) and (max-width:1080px){
+    .score-gallery{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="../index.html" class="brand">Joseph Dangerfield</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="siteNav">
+      <ul>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../current-work.html">Current Work</a></li>
+        <li><a href="../works.html" class="active">Works</a></li>
+        <li><a href="../index.html#listen">Listen</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="work-hero">
+  <div class="wrap">
+    <a href="../works.html" class="breadcrumb">← All Works</a>
+    <div class="hero-top-grid">
+      <div>
+        <div class="eyebrow">Full-Length Musical</div>
+        <h1 class="serif">John Henry</h1>
+        <div class="subtitle">A new musical celebrating a West Virginia and American legend</div>
+        <div class="credit">Book &amp; Lyrics by Ruth Hernandez &middot; Music by Joseph Dangerfield</div>
+      </div>
+      <figure class="score-cover">
+        <img src="../assets/john-henry-cover.jpg" alt="Poster for John Henry, a new musical with book and lyrics by Ruth Hernandez and music by Joseph Dangerfield, featuring the John Henry statue at the Great Bend Tunnel">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Synopsis</div>
+    </div>
+    <div class="about-body">
+      <p><em>John Henry</em>, a two-act musical with a libretto by Ruth Hernandez and music by Joseph Dangerfield, sets the American folk legend of the steel-driving man against a story of loss and resilience in the present day. When community leader Big John Hobbs is killed at a peaceful demonstration, his twin children retreat into silence &mdash; until a caseworker, Odetta Lewis, begins telling them the story of another John Henry: born into slavery in Kentucky, freed by the Emancipation Proclamation, and remembered for the day he raced a steam drill through a West Virginia mountain rather than watch his fellow railroad workers lose their livelihoods to a machine.</p>
+      <p>As the two timelines unfold side by side, the show moves from a cotton plantation to a freedmen's railroad camp to a present-day office where a grieving family relearns how to speak. Blending traditional spirituals and folk ballad with original song, <em>John Henry</em> asks what it means to carry a legacy forward &mdash; and which side of history each generation chooses to stand on.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Score</div>
+    </div>
+    <div class="score-gallery">
+      <figure class="score-figure">
+        <img src="../assets/john-henry-score-1.png" alt="A page from the John Henry score, opening measures marked 'Freely, quarter note = 72' with break drum, clarinet, horn, piano, and strings.">
+        <figcaption>Opening (&ldquo;Freely&rdquo;)</figcaption>
+      </figure>
+      <figure class="score-figure">
+        <img src="../assets/john-henry-score-2.png" alt="A page from the John Henry score, measure 29, choir singing 'What are our lives worth? A thirty eight bullet' over clarinet, horn, piano, and strings.">
+        <figcaption>mm. 29 &mdash; &ldquo;What are our lives worth?&rdquo;</figcaption>
+      </figure>
+      <figure class="score-figure">
+        <img src="../assets/john-henry-score-3.png" alt="A page from the John Henry score, measure 55, chorus singing 'Big John, Big John' over clarinet, horn, piano, and strings.">
+        <figcaption>mm. 55 &mdash; &ldquo;Big John, Big John&rdquo;</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Listen</div>
+    </div>
+    <div class="audio-player">
+      <audio controls preload="metadata" src="../assets/john-henry-never-forget.mp3">
+        Your browser does not support the audio element. <a href="../assets/john-henry-never-forget.mp3">Download the recording</a>.
+      </audio>
+      <p class="audio-caption">&ldquo;Never Forget&rdquo; &mdash; demo backing track</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Details</div>
+    </div>
+    <div class="detail-bar">
+      <div>
+        <dt>Year Completed</dt>
+        <dd>2025</dd>
+      </div>
+      <div>
+        <dt>Duration</dt>
+        <dd>1 hr 45 min</dd>
+      </div>
+      <div>
+        <dt>Instrumentation</dt>
+        <dd>Small ensemble and vocal cast, in two acts</dd>
+      </div>
+      <div>
+        <dt>Inquiries</dt>
+        <dd><a href="../contact.html">Contact Joseph Dangerfield</a></dd>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('siteNav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
