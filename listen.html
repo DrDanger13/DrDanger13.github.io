@@ -82,8 +82,33 @@
     margin-top:10px;
   }
 
+  /* ---------- PRESS QUOTE ---------- */
+  .press-quote{
+    padding:172px 0 64px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+  }
+  .press-quote p{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(20px,2.6vw,28px);
+    line-height:1.5;
+    color:var(--ink-soft);
+    max-width:680px;
+    margin:0 auto 18px;
+  }
+  .press-quote cite{
+    font-style:normal;
+    font-size:13px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .press-quote cite em{font-style:italic;}
+
   /* ---------- HERO ---------- */
-  .listen-hero{padding:172px 0 48px;border-bottom:1px solid var(--line);}
+  .listen-hero{padding:64px 0 48px;border-bottom:1px solid var(--line);}
   .listen-hero .eyebrow{margin-bottom:16px;}
   .listen-hero h1{
     font-size:clamp(38px,6vw,64px);
@@ -199,7 +224,8 @@
       width:26px;z-index:110;cursor:pointer;background:none;border:none;
     }
     .nav-toggle span{height:1px;background:var(--ink);transition:background .3s;}
-    .listen-hero{padding:140px 0 40px;}
+    .press-quote{padding:140px 0 48px;}
+    .listen-hero{padding:48px 0 40px;}
     .platform-grid{grid-template-columns:1fr;}
     .discog-row{grid-template-columns:1fr;gap:10px;}
     .section-pad{padding:64px 0;}
@@ -225,6 +251,13 @@
     </nav>
   </div>
 </header>
+
+<section class="press-quote">
+  <div class="wrap">
+    <p>&ldquo;&hellip;work of raw, untamed qualities&hellip;&rdquo;</p>
+    <cite>Jeffrey Williams, <em>New York Concert Review</em></cite>
+  </div>
+</section>
 
 <section class="listen-hero">
   <div class="wrap">
@@ -258,7 +291,6 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Commercial Discography</div>
-      <h2 class="serif">Recordings, by release</h2>
     </div>
     <p class="discog-note">All 24 tracks below are gathered into the Apple Music and Spotify playlists above.</p>
     <div class="discog-list">

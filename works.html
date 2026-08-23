@@ -62,6 +62,31 @@
   nav a.active{color:var(--gold);}
   .nav-toggle{display:none;}
 
+  /* ---------- PRESS QUOTE ---------- */
+  .press-quote{
+    padding:172px 0 64px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+  }
+  .press-quote p{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(20px,2.6vw,28px);
+    line-height:1.5;
+    color:var(--ink-soft);
+    max-width:680px;
+    margin:0 auto 18px;
+  }
+  .press-quote cite{
+    font-style:normal;
+    font-size:13px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .press-quote cite em{font-style:italic;}
+
   /* ---------- SECTIONS (shared) ---------- */
   section{scroll-margin-top:100px;}
   .section-pad{padding:56px 0 96px;}
@@ -70,7 +95,7 @@
   }
 
   /* ---------- WORKS HERO ---------- */
-  .works-hero{padding:172px 0 48px;border-bottom:1px solid var(--line);}
+  .works-hero{padding:64px 0 48px;border-bottom:1px solid var(--line);}
   .works-hero .eyebrow{margin-bottom:16px;}
   .works-hero h1{
     font-size:clamp(38px,6vw,64px);
@@ -187,7 +212,8 @@
       width:26px;z-index:110;cursor:pointer;background:none;border:none;
     }
     .nav-toggle span{height:1px;background:var(--ink);transition:background .3s;}
-    .works-hero{padding:140px 0 36px;}
+    .press-quote{padding:140px 0 48px;}
+    .works-hero{padding:48px 0 36px;}
     .section-pad{padding:40px 0 64px;}
     .controls{flex-direction:column;align-items:flex-start;}
     .search-field{max-width:none;width:100%;}
@@ -222,6 +248,13 @@
     </nav>
   </div>
 </header>
+
+<section class="press-quote">
+  <div class="wrap">
+    <p>&ldquo;&hellip;highly compelling and even provocative, in a subtle way&hellip;&rdquo;</p>
+    <cite>Peter Burwasser, <em>Fanfare</em></cite>
+  </div>
+</section>
 
 <section class="works-hero">
   <div class="wrap">
