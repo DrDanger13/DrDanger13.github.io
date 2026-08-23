@@ -140,58 +140,6 @@
   .platform-cta .arrow{transition:transform .25s ease;}
   .platform-card:hover .platform-cta .arrow{transform:translateX(4px);}
 
-  /* ---------- FROM THE WORKS (embeds) ---------- */
-  .rec-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px 32px;
-  }
-  .rec-card .rec-title{
-    font-family:'Archivo',sans-serif;
-    font-size:19px;
-    margin-bottom:4px;
-  }
-  .rec-card .rec-title a:hover{color:var(--gold);}
-  .rec-card .rec-byline{
-    font-size:13.5px;
-    color:var(--text-dim);
-    margin-bottom:16px;
-  }
-  .video-embed{
-    position:relative;
-    width:100%;
-    padding-top:56.25%;
-    background:var(--ink);
-    border:1px solid var(--line);
-  }
-  .video-embed iframe{
-    position:absolute;
-    top:0;left:0;
-    width:100%;height:100%;
-    border:0;
-  }
-  .audio-player{
-    border:1px solid var(--line);
-    background:var(--ivory);
-    padding:24px;
-  }
-  .audio-player audio{
-    width:100%;
-    display:block;
-  }
-  .audio-caption{
-    margin-top:14px;
-    font-size:13px;
-    color:var(--text-dim);
-    letter-spacing:.01em;
-  }
-  .spotify-embed iframe{
-    width:100%;
-    display:block;
-    border:0;
-    border-radius:12px;
-  }
-
   /* ---------- DISCOGRAPHY ---------- */
   .discog-note{
     font-size:13.5px;
@@ -226,6 +174,8 @@
     font-size:13.5px;
     color:var(--text-dim);
   }
+  .discog-album a{color:inherit;border-bottom:1px solid var(--gold-soft);transition:color .25s ease, border-color .25s ease;}
+  .discog-album a:hover{color:var(--gold);border-color:var(--gold);}
   .discog-movements{
     font-size:13px;
     color:var(--text-dim);
@@ -251,7 +201,6 @@
     .nav-toggle span{height:1px;background:var(--ink);transition:background .3s;}
     .listen-hero{padding:140px 0 40px;}
     .platform-grid{grid-template-columns:1fr;}
-    .rec-grid{grid-template-columns:1fr;}
     .discog-row{grid-template-columns:1fr;gap:10px;}
     .section-pad{padding:64px 0;}
   }
@@ -280,8 +229,7 @@
 <section class="listen-hero">
   <div class="wrap">
     <div class="eyebrow">Listen</div>
-    <h1 class="serif">Listen</h1>
-    <p>Recordings, performances, and the full commercial discography — in one place, ready to play.</p>
+    <p>Recordings, performances, and the full commercial discography.</p>
   </div>
 </section>
 
@@ -289,7 +237,6 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Stream the Collection</div>
-      <h2 class="serif">Open the full playlist</h2>
       <p>24 commercial recordings across nine works, gathered into one playlist on each platform.</p>
     </div>
     <div class="platform-grid">
@@ -310,97 +257,6 @@
 <section class="section-pad" style="padding-top:0;">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">From the Works</div>
-      <h2 class="serif">Recordings &amp; performances</h2>
-      <p>Selected performances, demos, and recordings from individual works — click through to the piece for the full note and score.</p>
-    </div>
-    <div class="rec-grid">
-
-      <div class="rec-card">
-        <div class="rec-title serif"><a href="works/color-schemes.html">Color Schemes</a></div>
-        <div class="rec-byline">Chamber &middot; two flutes and piano</div>
-        <div class="video-embed">
-          <iframe src="https://www.youtube.com/embed/8-u7ImqGdBE" title="Color Schemes — Joseph Dangerfield" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-        </div>
-      </div>
-
-      <div class="rec-card">
-        <div class="rec-title serif"><a href="works/winter-rites.html">Winter Rites</a></div>
-        <div class="rec-byline">Large Ensemble &middot; concertino for violoncello and 15 instruments</div>
-        <div class="video-embed">
-          <iframe src="https://www.youtube.com/embed/RGiy-E-qynw" title="Winter Rites — Joseph Dangerfield" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-        </div>
-      </div>
-
-      <div class="rec-card">
-        <div class="rec-title serif"><a href="works/remnants.html">Remnants</a></div>
-        <div class="rec-byline">Solo &middot; piano</div>
-        <div class="video-embed">
-          <iframe src="https://www.youtube.com/embed/C5pPI6Bv4rk" title="Remnants — Joseph Dangerfield" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-        </div>
-      </div>
-
-      <div class="rec-card">
-        <div class="rec-title serif"><a href="works/broken-obelisk.html">Broken Obelisk</a></div>
-        <div class="rec-byline">Chamber &middot; alto saxophone and piano</div>
-        <div class="video-embed">
-          <iframe src="https://www.youtube.com/embed/Csp2YkAdb58" title="Broken Obelisk — Joseph Dangerfield" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-        </div>
-      </div>
-
-      <div class="rec-card">
-        <div class="rec-title serif"><a href="works/postcards.html">Postcards</a></div>
-        <div class="rec-byline">Solo &middot; piano</div>
-        <div class="video-embed">
-          <iframe src="https://www.youtube.com/embed/oUNZB5x-Wec" title="Postcards — Joseph Dangerfield" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-        </div>
-      </div>
-
-      <div class="rec-card">
-        <div class="rec-title serif"><a href="works/microsuite.html">MicroSuite</a></div>
-        <div class="rec-byline">Solo &middot; organ &middot; Brian Schober, <em>Contemporary Organ Works</em></div>
-        <div class="spotify-embed">
-          <iframe src="https://open.spotify.com/embed/track/5ZmYoHZboa16sxoKDyYEFP?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="MicroSuite on Spotify"></iframe>
-        </div>
-      </div>
-
-      <div class="rec-card">
-        <div class="rec-title serif"><a href="works/moon-phase.html">Moon Phase</a></div>
-        <div class="rec-byline">Chamber &middot; flute (doubling alto flute), cello, and piano</div>
-        <div class="audio-player">
-          <audio controls preload="metadata" src="assets/moon-phase-npr-2020-01-16.mp3">
-            Your browser does not support the audio element. <a href="assets/moon-phase-npr-2020-01-16.mp3">Download the recording</a>.
-          </audio>
-          <p class="audio-caption">Featured on NPR, January 16, 2020</p>
-        </div>
-      </div>
-
-      <div class="rec-card">
-        <div class="rec-title serif"><a href="works/john-henry.html">John Henry</a></div>
-        <div class="rec-byline">Full-Length Musical &middot; small ensemble and vocal cast</div>
-        <div class="audio-player">
-          <audio controls preload="metadata" src="assets/john-henry-never-forget.mp3">
-            Your browser does not support the audio element. <a href="assets/john-henry-never-forget.mp3">Download the recording</a>.
-          </audio>
-          <p class="audio-caption">&ldquo;Never Forget&rdquo; &mdash; demo backing track</p>
-        </div>
-      </div>
-
-      <div class="rec-card">
-        <div class="rec-title serif"><a href="works/piano-quintet.html">Piano Quintet</a></div>
-        <div class="rec-byline">Chamber &middot; 2 violins, viola, violoncello, and piano</div>
-        <div class="video-embed">
-          <iframe src="https://www.youtube.com/embed/_qjgLygFM5A" title="Piano Quintet — Joseph Dangerfield" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="section-pad" style="padding-top:0;">
-  <div class="wrap">
-    <div class="section-head">
       <div class="eyebrow">Commercial Discography</div>
       <h2 class="serif">Recordings, by release</h2>
     </div>
@@ -411,7 +267,7 @@
         <div>
           <div class="discog-title"><a href="works/color-schemes.html">Colour Schemes</a></div>
           <div class="discog-performers">Matej Grahek, Nina Assimakopoulos &amp; Rikardo Janjoš</div>
-          <div class="discog-album">Kaleidoscope &mdash; Contemporary Works for Two Flutes and Piano by Slovenian and American Composers</div>
+          <div class="discog-album"><a href="https://open.spotify.com/album/5esdSAFvSZsQMTHbpmA8vj" target="_blank" rel="noopener">Kaleidoscope &mdash; Contemporary Works for Two Flutes and Piano by Slovenian and American Composers</a></div>
         </div>
         <div>
           <div class="discog-movements">
@@ -431,7 +287,7 @@
         <div>
           <div class="discog-title">Letters: V. For Clara</div>
           <div class="discog-performers">Ann DuHamel</div>
-          <div class="discog-album">Rückblick &mdash; New Piano Music Inspired by Brahms</div>
+          <div class="discog-album"><a href="https://www.amazon.com/Ruckblick-Ann-DuHamel/dp/B08JVLSR5X/" target="_blank" rel="noopener">Rückblick &mdash; New Piano Music Inspired by Brahms</a></div>
         </div>
         <div>
           <div class="discog-year">2020</div>
@@ -442,7 +298,7 @@
         <div>
           <div class="discog-title"><a href="works/winter-rites.html">Winter Rites</a></div>
           <div class="discog-performers">Moscow Conservatory Studio for New Music, Igor Dronov</div>
-          <div class="discog-album">Viva Concertante!</div>
+          <div class="discog-album"><a href="https://www.amazon.com/Concertante-Gompper-Dangerfield-Ching-Chu-Donatoni/dp/B00000DH66/" target="_blank" rel="noopener">Viva Concertante!</a></div>
         </div>
         <div>
           <div class="discog-movements">
@@ -458,7 +314,7 @@
         <div>
           <div class="discog-title"><a href="works/remnants.html">Remnants</a></div>
           <div class="discog-performers">Ryan Fogg</div>
-          <div class="discog-album">The Fogg Project</div>
+          <div class="discog-album"><a href="https://www.amazon.com/Fogg-Project-Ryan/dp/B005ERIBQY/" target="_blank" rel="noopener">The Fogg Project</a></div>
         </div>
         <div>
           <div class="discog-movements">
@@ -478,7 +334,7 @@
         <div>
           <div class="discog-title"><a href="works/piano-quintet.html">Piano Quintet</a></div>
           <div class="discog-performers">Moscow Studio for New Music</div>
-          <div class="discog-album">Spirals &mdash; American Music in Moscow</div>
+          <div class="discog-album"><a href="https://www.amazon.com/Spirals-American-Moscow-Luke-Dahn/dp/B001QWFVPU/" target="_blank" rel="noopener">Spirals &mdash; American Music in Moscow</a></div>
         </div>
         <div>
           <div class="discog-year">2009</div>
@@ -489,7 +345,7 @@
         <div>
           <div class="discog-title">Two Geometric Etudes</div>
           <div class="discog-performers">Stacey Barelos</div>
-          <div class="discog-album">The Midwest American Piano Project</div>
+          <div class="discog-album"><a href="https://www.amazon.com/Stacey-Barelos-Midwest-American-Project/dp/B001NRY6RM/" target="_blank" rel="noopener">The Midwest American Piano Project</a></div>
         </div>
         <div>
           <div class="discog-movements">
@@ -502,7 +358,7 @@
 
       <div class="discog-row">
         <div>
-          <div class="discog-title"><a href="works/microsuite.html">Micro Suite</a></div>
+          <div class="discog-title"><a href="works/microsuite.html">MicroSuite</a></div>
           <div class="discog-performers">Brian Schober</div>
           <div class="discog-album">Contemporary Organ Works</div>
         </div>
@@ -515,7 +371,7 @@
         <div>
           <div class="discog-title">Dreams of Fin</div>
           <div class="discog-performers">David Gompper &amp; Wolfgang David</div>
-          <div class="discog-album">Star of the County Down</div>
+          <div class="discog-album"><a href="https://www.amazon.com/Star-County-Gompper-Dangerfield-2007-06-05/dp/B013Q6L76K/" target="_blank" rel="noopener">Star of the County Down</a></div>
         </div>
         <div>
           <div class="discog-year">2007</div>
@@ -526,7 +382,7 @@
         <div>
           <div class="discog-title">The Waves Roll On, Thundering and Shimmering</div>
           <div class="discog-performers">Studio for New Music, Moscow Conservatory</div>
-          <div class="discog-album">Butterfly Dance &mdash; Music by Americans</div>
+          <div class="discog-album"><a href="https://www.amazon.com/Butterfly-Dance-STUDIO-MOSCOW-CONSERVATORY/dp/B000ION618/" target="_blank" rel="noopener">Butterfly Dance &mdash; Music by Americans</a></div>
         </div>
         <div>
           <div class="discog-year">2006</div>
