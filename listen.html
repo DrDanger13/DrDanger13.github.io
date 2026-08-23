@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listen — Joseph Dangerfield</title>
+<meta name="description" content="Listen to music by composer Joseph Dangerfield — stream the full commercial discography on Apple Music and Spotify, plus recordings and performances from individual works.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15161b;
+    --ink-soft:#20222a;
+    --ivory:#f6f2e9;
+    --ivory-dim:#ece5d4;
+    --paper:#fbf9f4;
+    --gold:#b8975a;
+    --gold-soft:#d9c393;
+    --line:#e3dcc9;
+    --text-dim:#6b6a63;
+    --max:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Archivo',sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:16px 0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .brand{
+    font-family:'Archivo',sans-serif;
+    font-size:19px;
+    letter-spacing:.04em;
+    color:var(--ink);
+  }
+  nav ul{display:flex;gap:36px;list-style:none;}
+  nav a{
+    font-size:13px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--ink);
+    transition:color .3s ease;
+  }
+  nav a:hover{color:var(--gold);}
+  nav a.active{color:var(--gold);}
+  .nav-toggle{display:none;}
+
+  /* ---------- SECTIONS (shared) ---------- */
+  section{scroll-margin-top:100px;}
+  .section-pad{padding:56px 0 96px;}
+  .section-head{margin-bottom:40px;}
+  .eyebrow{
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  }
+  .section-head h2{
+    font-size:clamp(26px,3vw,34px);
+    font-weight:400;
+    letter-spacing:-.01em;
+    margin-top:12px;
+  }
+  .section-head p{
+    color:var(--text-dim);
+    font-size:15.5px;
+    max-width:60ch;
+    margin-top:10px;
+  }
+
+  /* ---------- HERO ---------- */
+  .listen-hero{padding:172px 0 48px;border-bottom:1px solid var(--line);}
+  .listen-hero .eyebrow{margin-bottom:16px;}
+  .listen-hero h1{
+    font-size:clamp(38px,6vw,64px);
+    font-weight:400;
+    letter-spacing:-.01em;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .listen-hero p{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    font-size:clamp(18px,2vw,22px);
+    color:var(--ink-soft);
+    max-width:52ch;
+  }
+
+  /* ---------- PLATFORM HUB ---------- */
+  .platform-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  .platform-card{
+    border:1px solid var(--line);
+    background:var(--ivory);
+    padding:36px;
+    transition:border-color .25s ease, transform .25s ease;
+  }
+  .platform-card:hover{border-color:var(--gold-soft);transform:translateY(-2px);}
+  .platform-card .platform-name{
+    font-family:'Archivo',sans-serif;
+    font-size:24px;
+    color:var(--ink);
+    margin-bottom:8px;
+  }
+  .platform-card .platform-desc{
+    font-size:14.5px;
+    color:var(--text-dim);
+    margin-bottom:22px;
+  }
+  .platform-card .platform-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:12.5px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--gold-soft);
+    padding-bottom:3px;
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .platform-card:hover .platform-cta{color:var(--gold);border-color:var(--gold);}
+  .platform-cta .arrow{transition:transform .25s ease;}
+  .platform-card:hover .platform-cta .arrow{transform:translateX(4px);}
+
+  /* ---------- FROM THE WORKS (embeds) ---------- */
+  .rec-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px 32px;
+  }
+  .rec-card .rec-title{
+    font-family:'Archivo',sans-serif;
+    font-size:19px;
+    margin-bottom:4px;
+  }
+  .rec-card .rec-title a:hover{color:var(--gold);}
+  .rec-card .rec-byline{
+    font-size:13.5px;
+    color:var(--text-dim);
+    margin-bottom:16px;
+  }
+  .video-embed{
+    position:relative;
+    width:100%;
+    padding-top:56.25%;
+    background:var(--ink);
+    border:1px solid var(--line);
+  }
+  .video-embed iframe{
+    position:absolute;
+    top:0;left:0;
+    width:100%;height:100%;
+    border:0;
+  }
+  .audio-player{
+    border:1px solid var(--line);
+    background:var(--ivory);
+    padding:24px;
+  }
+  .audio-player audio{
+    width:100%;
+    display:block;
+  }
+  .audio-caption{
+    margin-top:14px;
+    font-size:13px;
+    color:var(--text-dim);
+    letter-spacing:.01em;
+  }
+  .spotify-embed iframe{
+    width:100%;
+    display:block;
+    border:0;
+    border-radius:12px;
+  }
+
+  /* ---------- DISCOGRAPHY ---------- */
+  .discog-note{
+    font-size:13.5px;
+    color:var(--text-dim);
+    margin-bottom:28px;
+    padding-bottom:24px;
+    border-bottom:1px solid var(--line);
+  }
+  .discog-list{}
+  .discog-row{
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:24px;
+  }
+  .discog-title{
+    font-family:'Archivo',sans-serif;
+    font-size:19px;
+    margin-bottom:6px;
+  }
+  .discog-title a{border-bottom:1px solid transparent;transition:color .25s ease, border-color .25s ease;}
+  .discog-title a:hover{color:var(--gold);border-color:var(--gold-soft);}
+  .discog-performers{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin-bottom:4px;
+  }
+  .discog-album{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    font-size:13.5px;
+    color:var(--text-dim);
+  }
+  .discog-movements{
+    font-size:13px;
+    color:var(--text-dim);
+    line-height:1.8;
+  }
+  .discog-movements .num{color:var(--gold);margin-right:6px;}
+  .discog-year{
+    font-size:12.5px;
+    color:var(--text-dim);
+    letter-spacing:.04em;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    nav{position:fixed;inset:0;top:0;background:var(--ink);flex-direction:column;padding:110px 32px 40px;transform:translateY(-100%);transition:transform .4s ease;z-index:90;}
+    nav.open{transform:translateY(0);}
+    nav ul{flex-direction:column;gap:26px;}
+    nav a{color:var(--ivory);font-size:16px;}
+    .nav-toggle{
+      display:flex;flex-direction:column;gap:5px;
+      width:26px;z-index:110;cursor:pointer;background:none;border:none;
+    }
+    .nav-toggle span{height:1px;background:var(--ink);transition:background .3s;}
+    .listen-hero{padding:140px 0 40px;}
+    .platform-grid{grid-template-columns:1fr;}
+    .rec-grid{grid-template-columns:1fr;}
+    .discog-row{grid-template-columns:1fr;gap:10px;}
+    .section-pad{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="index.html" class="brand">Joseph Dangerfield</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="siteNav">
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="current-work.html">Current Work</a></li>
+        <li><a href="works.html">Works</a></li>
+        <li><a href="listen.html" class="active">Listen</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="listen-hero">
+  <div class="wrap">
+    <div class="eyebrow">Listen</div>
+    <h1 class="serif">Listen</h1>
+    <p>Recordings, performances, and the full commercial discography — in one place, ready to play.</p>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Stream the Collection</div>
+      <h2 class="serif">Open the full playlist</h2>
+      <p>24 commercial recordings across nine works, gathered into one playlist on each platform.</p>
+    </div>
+    <div class="platform-grid">
+      <a class="platform-card" href="https://music.apple.com/us/playlist/my-music/pl.u-ZmbllxaTgpxdM" target="_blank" rel="noopener">
+        <div class="platform-name serif">Apple Music</div>
+        <div class="platform-desc">The full playlist — 24 tracks, 1 hr 32 min.</div>
+        <div class="platform-cta">Open playlist <span class="arrow">&rarr;</span></div>
+      </a>
+      <a class="platform-card" href="https://open.spotify.com/playlist/445Yq9oXU8JeVrzjdpWfnn" target="_blank" rel="noopener">
+        <div class="platform-name serif">Spotify</div>
+        <div class="platform-desc">The same collection, streaming on Spotify.</div>
+        <div class="platform-cta">Open playlist <span class="arrow">&rarr;</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">From the Works</div>
+      <h2 class="serif">Recordings &amp; performances</h2>
+      <p>Selected performances, demos, and recordings from individual works — click through to the piece for the full note and score.</p>
+    </div>
+    <div class="rec-grid">
+
+      <div class="rec-card">
+        <div class="rec-title serif"><a href="works/color-schemes.html">Color Schemes</a></div>
+        <div class="rec-byline">Chamber &middot; two flutes and piano</div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/8-u7ImqGdBE" title="Color Schemes — Joseph Dangerfield" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <div class="rec-title serif"><a href="works/winter-rites.html">Winter Rites</a></div>
+        <div class="rec-byline">Large Ensemble &middot; concertino for violoncello and 15 instruments</div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/RGiy-E-qynw" title="Winter Rites — Joseph Dangerfield" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <div class="rec-title serif"><a href="works/remnants.html">Remnants</a></div>
+        <div class="rec-byline">Solo &middot; piano</div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/C5pPI6Bv4rk" title="Remnants — Joseph Dangerfield" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <div class="rec-title serif"><a href="works/broken-obelisk.html">Broken Obelisk</a></div>
+        <div class="rec-byline">Chamber &middot; alto saxophone and piano</div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/Csp2YkAdb58" title="Broken Obelisk — Joseph Dangerfield" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <div class="rec-title serif"><a href="works/postcards.html">Postcards</a></div>
+        <div class="rec-byline">Solo &middot; piano</div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/oUNZB5x-Wec" title="Postcards — Joseph Dangerfield" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <div class="rec-title serif"><a href="works/microsuite.html">MicroSuite</a></div>
+        <div class="rec-byline">Solo &middot; organ &middot; Brian Schober, <em>Contemporary Organ Works</em></div>
+        <div class="spotify-embed">
+          <iframe src="https://open.spotify.com/embed/track/5ZmYoHZboa16sxoKDyYEFP?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="MicroSuite on Spotify"></iframe>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <div class="rec-title serif"><a href="works/moon-phase.html">Moon Phase</a></div>
+        <div class="rec-byline">Chamber &middot; flute (doubling alto flute), cello, and piano</div>
+        <div class="audio-player">
+          <audio controls preload="metadata" src="assets/moon-phase-npr-2020-01-16.mp3">
+            Your browser does not support the audio element. <a href="assets/moon-phase-npr-2020-01-16.mp3">Download the recording</a>.
+          </audio>
+          <p class="audio-caption">Featured on NPR, January 16, 2020</p>
+        </div>
+      </div>
+
+      <div class="rec-card">
+        <div class="rec-title serif"><a href="works/john-henry.html">John Henry</a></div>
+        <div class="rec-byline">Full-Length Musical &middot; small ensemble and vocal cast</div>
+        <div class="audio-player">
+          <audio controls preload="metadata" src="assets/john-henry-never-forget.mp3">
+            Your browser does not support the audio element. <a href="assets/john-henry-never-forget.mp3">Download the recording</a>.
+          </audio>
+          <p class="audio-caption">&ldquo;Never Forget&rdquo; &mdash; demo backing track</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Commercial Discography</div>
+      <h2 class="serif">Recordings, by release</h2>
+    </div>
+    <p class="discog-note">All 24 tracks below are gathered into the Apple Music and Spotify playlists above.</p>
+    <div class="discog-list">
+
+      <div class="discog-row">
+        <div>
+          <div class="discog-title"><a href="works/color-schemes.html">Colour Schemes</a></div>
+          <div class="discog-performers">Matej Grahek, Nina Assimakopoulos &amp; Rikardo Janjoš</div>
+          <div class="discog-album">Kaleidoscope &mdash; Contemporary Works for Two Flutes and Piano by Slovenian and American Composers</div>
+        </div>
+        <div>
+          <div class="discog-movements">
+            <div><span class="num">I.</span>Silent Stillness</div>
+            <div><span class="num">II.</span>God-like Breathing</div>
+            <div><span class="num">III.</span>Curves of Beauty</div>
+            <div><span class="num">IV.</span>A Stone Wall into Green Fields</div>
+            <div><span class="num">V.</span>Truth is&hellip;</div>
+            <div><span class="num">VI.</span>Lucy in the Sky</div>
+            <div><span class="num">VII.</span>Quiet Music</div>
+          </div>
+          <div class="discog-year" style="margin-top:8px;">2023</div>
+        </div>
+      </div>
+
+      <div class="discog-row">
+        <div>
+          <div class="discog-title">Letters: V. For Clara</div>
+          <div class="discog-performers">Ann DuHamel</div>
+          <div class="discog-album">Rückblick &mdash; New Piano Music Inspired by Brahms</div>
+        </div>
+        <div>
+          <div class="discog-year">2020</div>
+        </div>
+      </div>
+
+      <div class="discog-row">
+        <div>
+          <div class="discog-title"><a href="works/winter-rites.html">Winter Rites</a></div>
+          <div class="discog-performers">Moscow Conservatory Studio for New Music, Igor Dronov</div>
+          <div class="discog-album">Viva Concertante!</div>
+        </div>
+        <div>
+          <div class="discog-movements">
+            <div><span class="num">I.</span>Oak and Feather</div>
+            <div><span class="num">II.</span>Solstice</div>
+            <div><span class="num">III.</span>Birth of the New Sun</div>
+          </div>
+          <div class="discog-year" style="margin-top:8px;">2009</div>
+        </div>
+      </div>
+
+      <div class="discog-row">
+        <div>
+          <div class="discog-title"><a href="works/remnants.html">Remnants</a></div>
+          <div class="discog-performers">Ryan Fogg</div>
+          <div class="discog-album">The Fogg Project</div>
+        </div>
+        <div>
+          <div class="discog-movements">
+            <div><span class="num">&middot;</span>Time (As Space)</div>
+            <div><span class="num">&middot;</span>Time (As Movement)</div>
+            <div><span class="num">&middot;</span>Time (Interrupted)</div>
+            <div><span class="num">&middot;</span>Time (In Flux)</div>
+            <div><span class="num">&middot;</span>Time (Morphing Into&hellip;)</div>
+            <div><span class="num">&middot;</span>&hellip;Space (In Time)</div>
+            <div><span class="num">&middot;</span>Time (Ends)</div>
+          </div>
+          <div class="discog-year" style="margin-top:8px;">2011</div>
+        </div>
+      </div>
+
+      <div class="discog-row">
+        <div>
+          <div class="discog-title">Piano Quintet</div>
+          <div class="discog-performers">Moscow Studio for New Music</div>
+          <div class="discog-album">Spirals &mdash; American Music in Moscow</div>
+        </div>
+        <div>
+          <div class="discog-year">2009</div>
+        </div>
+      </div>
+
+      <div class="discog-row">
+        <div>
+          <div class="discog-title">Two Geometric Etudes</div>
+          <div class="discog-performers">Stacey Barelos</div>
+          <div class="discog-album">The Midwest American Piano Project</div>
+        </div>
+        <div>
+          <div class="discog-movements">
+            <div><span class="num">I.</span>Eadem Mutato Resurgo</div>
+            <div><span class="num">II.</span>Tryglyph</div>
+          </div>
+          <div class="discog-year" style="margin-top:8px;">2009</div>
+        </div>
+      </div>
+
+      <div class="discog-row">
+        <div>
+          <div class="discog-title"><a href="works/microsuite.html">Micro Suite</a></div>
+          <div class="discog-performers">Brian Schober</div>
+          <div class="discog-album">Contemporary Organ Works</div>
+        </div>
+        <div>
+          <div class="discog-year">2020</div>
+        </div>
+      </div>
+
+      <div class="discog-row">
+        <div>
+          <div class="discog-title">Dreams of Fin</div>
+          <div class="discog-performers">David Gompper &amp; Wolfgang David</div>
+          <div class="discog-album">Star of the County Down</div>
+        </div>
+        <div>
+          <div class="discog-year">2007</div>
+        </div>
+      </div>
+
+      <div class="discog-row">
+        <div>
+          <div class="discog-title">The Waves Roll On, Thundering and Shimmering</div>
+          <div class="discog-performers">Studio for New Music, Moscow Conservatory</div>
+          <div class="discog-album">Butterfly Dance &mdash; Music by Americans</div>
+        </div>
+        <div>
+          <div class="discog-year">2006</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('siteNav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
