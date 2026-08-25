@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Winter Rites — Joseph Dangerfield</title>
-<meta name="description" content="Winter Rites, a concertino for violoncello and ensemble by Joseph Dangerfield, written at the Banff Centre for the University of Iowa Center for New Music.">
+<title>The Wild — Joseph Dangerfield</title>
+<meta name="description" content="The Wild, a work for piano and small ensemble by Joseph Dangerfield, inspired by Barnett Newman's 1950 painting of the same name, premiered at Carnegie Hall.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -108,8 +108,18 @@
     border:1px solid var(--line);
     box-shadow:0 24px 48px -24px rgba(21,22,27,0.25);
   }
+  .premiere-tag{
+    margin-top:20px;
+    font-size:13px;
+    letter-spacing:.03em;
+    color:var(--text-dim);
+  }
+  .premiere-tag strong{
+    color:var(--ink-soft);
+    font-weight:500;
+  }
 
-  /* ---------- COMPOSER'S NOTE ---------- */
+  /* ---------- PROGRAM NOTE ---------- */
   .about-body p{
     color:var(--text-dim);
     font-size:16px;
@@ -132,59 +142,32 @@
     margin-top:28px;
   }
 
-  /* ---------- LISTEN ---------- */
-  .video-embed{
-    position:relative;
-    width:100%;
-    padding-top:56.25%;
-    background:var(--ink);
+  /* ---------- LISTEN (audio) ---------- */
+  .audio-player{
     border:1px solid var(--line);
+    background:var(--ivory);
+    padding:32px;
   }
-  .video-embed iframe{
-    position:absolute;
-    top:0;left:0;
-    width:100%;height:100%;
-    border:0;
-  }
-
-  /* ---------- MOVEMENTS ---------- */
-  .movements{border-top:1px solid var(--line);}
-  .movement{
-    display:grid;
-    grid-template-columns:110px 1fr;
-    gap:40px;
-    padding:26px 0;
-    border-bottom:1px solid var(--line);
-    align-items:baseline;
-  }
-  .movement:last-child{border-bottom:none;}
-  .movement .num{
-    font-family:'Archivo',sans-serif;
-    font-style:italic;
-    font-size:15px;
-    color:var(--gold);
-    letter-spacing:.04em;
-  }
-  .movement h3{
-    font-size:clamp(19px,2.2vw,23px);
-    font-weight:400;
-    color:var(--ink);
-  }
-  .movement .movement-cite{
+  .audio-player audio{
+    width:100%;
     display:block;
-    font-family:'Archivo',sans-serif;
-    font-style:italic;
-    font-size:14px;
-    color:var(--text-dim);
-    margin-top:4px;
   }
-  .movement p{
+  .audio-caption{
+    margin-top:18px;
+    font-size:13px;
     color:var(--text-dim);
-    font-size:15.5px;
-    line-height:1.8;
-    max-width:66ch;
-    margin-top:14px;
+    letter-spacing:.01em;
   }
+  .audio-caption strong{
+    color:var(--ink-soft);
+    font-weight:600;
+  }
+  .audio-caption a{
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--gold-soft);
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .audio-caption a:hover{color:var(--gold);border-color:var(--gold);}
 
   /* ---------- DETAIL BAR ---------- */
   .detail-bar{
@@ -227,9 +210,9 @@
     .work-hero{padding:140px 0 40px;}
     .hero-top-grid{grid-template-columns:1fr;gap:28px;}
     .score-cover{width:140px;}
-    .movement{grid-template-columns:1fr;gap:4px;}
     .detail-bar{grid-template-columns:1fr 1fr;gap:28px;}
     .section-pad{padding:64px 0;}
+    .audio-player{padding:24px 20px;}
   }
 </style>
 </head>
@@ -258,13 +241,11 @@
     <a href="../works.html" class="breadcrumb">← All Works</a>
     <div class="hero-top-grid">
       <div>
-        <div class="eyebrow">Large Ensemble</div>
-        <h1 class="serif">Winter Rites</h1>
-        <div class="subtitle">concertino for violoncello and ensemble</div>
+        <div class="eyebrow">Chamber</div>
+        <h1 class="serif">The Wild</h1>
+        <div class="subtitle">for piano and small ensemble</div>
+        <div class="premiere-tag">Premiered at <strong>Carnegie Hall</strong> — October 26, 2013</div>
       </div>
-      <figure class="score-cover">
-        <img src="../assets/winter-rites-cover.png" alt="Score cover for Winter Rites by Joseph Dangerfield — American Concert Editions, concertino for solo violoncello and ensemble">
-      </figure>
     </div>
   </div>
 </section>
@@ -275,31 +256,9 @@
       <div class="eyebrow">Program Note</div>
     </div>
     <div class="about-body">
-      <p><em>Winter Rites</em> is a brooding, visceral exploration of seasonal transformation, primal ritual, and physical endurance. Written for chamber ensemble, the piece approaches winter not merely as a passive landscape of cold and silence, but as an active, elemental force; a season of stark reduction, transformation, and ancient ceremony.</p>
-      <p>Structurally, <em>Winter Rites</em> unfolds through stark contrasts in timbre and density. Dangerfield constructs an atmospheric world using brittle string techniques, dark, resonance-heavy piano sonorities, and razor-sharp woodwind gestures. Fragments of ritualistic motifs continuously emerge, fracture, and reconfigure, creating a sense of relentless forward motion beneath an icy, suspended surface.</p>
-      <p>The work balances moments of brittle, crystalline stillness with sudden, violent outbursts of rhythmic energy. As the ensemble navigates these shifting textures, <em>Winter Rites</em> captures the tension between the harsh isolation of the winter landscape and the intense, driving impulse toward renewal that lies beneath it.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section-pad" style="padding-top:0;">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Movements</div>
-    </div>
-    <div class="movements">
-      <div class="movement">
-        <div class="num">I.</div>
-        <h3 class="serif">Oak and Feather</h3>
-      </div>
-      <div class="movement">
-        <div class="num">II.</div>
-        <h3 class="serif">Solstice</h3>
-      </div>
-      <div class="movement">
-        <div class="num">III.</div>
-        <h3 class="serif">Birth of the New Sun</h3>
-      </div>
+      <p><em>The Wild</em> stands as a sonic translation of visual minimalism and spatial intervention. Originally conceived as the first movement of an unrealized Piano Concerto, this version distills the core of that larger orchestral architecture into a highly concentrated chamber format.</p>
+      <p>The conceptual foundation of the piece is directly inspired by <a href="https://www.moma.org/collection/works/80574" target="_blank" rel="noopener">The Museum of Modern Art</a>&rsquo;s iconic 1950 painting <em>The Wild</em> by Abstract Expressionist master <a href="https://www.moma.org/artists/4285-barnett-newman" target="_blank" rel="noopener">Barnett Newman</a>. Newman&rsquo;s radical artwork is famous for its extreme dimensions&mdash;standing over seven feet tall but measuring a mere one-and-a-half inches wide&mdash;effectively isolating his signature vertical &ldquo;zip&rdquo; into a freestanding, sculptural presence that dramatically interacts with the vast wall and space around it.</p>
+      <p>In his musical response, Dangerfield reflects this fascinating tension between intense compression and a heightened awareness of surrounding space. Much like Newman&rsquo;s isolated, vibrant stripe piercing a dark field, Dangerfield&rsquo;s composition utilizes concentrated gestures, sharp contrasts, and focused instrumental textures. The music challenges traditional boundaries of musical narrative, shifting between moments of compact, explosive energy and open, resonant vacuums. By transforming visual linearity and spatial confrontation into time-bound acoustic events, Dangerfield invites the listener to experience the &ldquo;zip&rdquo; not as a flat surface, but as an unfolding, visceral phenomenon.</p>
     </div>
   </div>
 </section>
@@ -309,8 +268,11 @@
     <div class="section-head">
       <div class="eyebrow">Listen</div>
     </div>
-    <div class="video-embed">
-      <iframe src="https://www.youtube.com/embed/RGiy-E-qynw" title="Winter Rites — Joseph Dangerfield" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    <div class="audio-player">
+      <audio controls preload="metadata" src="../assets/the-wild-excerpt.mp3">
+        Your browser does not support the audio element. <a href="../assets/the-wild-excerpt.mp3">Download the recording</a>.
+      </audio>
+      <p class="audio-caption"><strong>Excerpt.</strong> The full work runs 15′; this recording is a shorter edit.</p>
     </div>
   </div>
 </section>
@@ -323,19 +285,19 @@
     <div class="detail-bar">
       <div>
         <dt>Year Completed</dt>
-        <dd>2008</dd>
+        <dd>2013</dd>
       </div>
       <div>
         <dt>Duration</dt>
-        <dd>18′</dd>
+        <dd>15′</dd>
       </div>
       <div>
         <dt>Instrumentation</dt>
-        <dd>Concertino for violoncello and 15 instruments</dd>
+        <dd>Piano and small ensemble</dd>
       </div>
       <div>
-        <dt>Purchase</dt>
-        <dd><a href="https://composers.com/products/dangerfield-winter-rites?variant=45501664493788" target="_blank" rel="noopener">American Composers Alliance</a></dd>
+        <dt>Inquiries</dt>
+        <dd><a href="../contact.html">Contact Joseph Dangerfield</a></dd>
       </div>
     </div>
   </div>
