@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Death is Nothing at All — Joseph Dangerfield</title>
+<meta name="description" content="Death is Nothing at All, a setting for SATB chorus and piano by Joseph Dangerfield, drawing on Henry Scott-Holland's 1910 sermon on grief and continuity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15161b;
+    --ink-soft:#20222a;
+    --ivory:#f6f2e9;
+    --ivory-dim:#ece5d4;
+    --paper:#fbf9f4;
+    --gold:#b8975a;
+    --gold-soft:#d9c393;
+    --line:#e3dcc9;
+    --text-dim:#6b6a63;
+    --max:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Archivo',sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  img{max-width:100%;display:block;}
+
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:16px 0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .brand{
+    font-family:'Archivo',sans-serif;
+    font-size:19px;
+    letter-spacing:.04em;
+    color:var(--ink);
+  }
+  nav ul{display:flex;gap:36px;list-style:none;}
+  nav a{
+    font-size:13px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--ink);
+    transition:color .3s ease;
+  }
+  nav a:hover{color:var(--gold);}
+  nav a.active{color:var(--gold);}
+  .nav-toggle{display:none;}
+
+  section{scroll-margin-top:100px;}
+  .section-pad{padding:96px 0;}
+  .section-head{margin-bottom:40px;}
+  .eyebrow{
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  }
+
+  .work-hero{padding:172px 0 56px;border-bottom:1px solid var(--line);}
+  .breadcrumb{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin-bottom:22px;
+    transition:color .25s ease;
+  }
+  .breadcrumb:hover{color:var(--gold);}
+  .work-hero .eyebrow{margin-bottom:16px;}
+  .work-hero h1{
+    font-size:clamp(38px,6vw,64px);
+    font-weight:400;
+    letter-spacing:-.01em;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .work-hero .subtitle{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    font-size:clamp(18px,2vw,22px);
+    color:var(--ink-soft);
+  }
+  .hero-top-grid{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:48px;
+    align-items:start;
+  }
+  .score-cover{width:180px;flex-shrink:0;}
+  .score-cover img{
+    width:100%;
+    border:1px solid var(--line);
+    box-shadow:0 24px 48px -24px rgba(21,22,27,0.25);
+  }
+
+  .about-body p{
+    color:var(--text-dim);
+    font-size:16px;
+    line-height:1.85;
+    margin-bottom:22px;
+    max-width:66ch;
+  }
+  .about-body p:last-child{margin-bottom:0;}
+  .about-body a{
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--gold-soft);
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .about-body a:hover{color:var(--gold);border-color:var(--gold);}
+  .note-signoff{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:15px;
+    margin-top:28px;
+  }
+
+  .detail-bar{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:32px;
+    border-top:1px solid var(--line);
+    padding-top:36px;
+  }
+  .detail-bar dt{
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin-bottom:8px;
+  }
+  .detail-bar dd{
+    font-size:15px;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .detail-bar dd a{
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--gold-soft);
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .detail-bar dd a:hover{color:var(--gold);border-color:var(--gold);}
+
+  @media (max-width:860px){
+    nav{position:fixed;inset:0;top:0;background:var(--ink);flex-direction:column;padding:110px 32px 40px;transform:translateY(-100%);transition:transform .4s ease;z-index:90;}
+    nav.open{transform:translateY(0);}
+    nav ul{flex-direction:column;gap:26px;}
+    nav a{color:var(--ivory);font-size:16px;}
+    .nav-toggle{
+      display:flex;flex-direction:column;gap:5px;
+      width:26px;z-index:110;cursor:pointer;background:none;border:none;
+    }
+    .nav-toggle span{height:1px;background:var(--ink);transition:background .3s;}
+    .work-hero{padding:140px 0 40px;}
+    .hero-top-grid{grid-template-columns:1fr;gap:28px;}
+    .score-cover{width:140px;}
+    .detail-bar{grid-template-columns:1fr 1fr;gap:28px;}
+    .section-pad{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="../index.html" class="brand">Joseph Dangerfield</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="siteNav">
+      <ul>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../current-work.html">Current Work</a></li>
+        <li><a href="../works.html" class="active">Works</a></li>
+        <li><a href="../listen.html">Listen</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="work-hero">
+  <div class="wrap">
+    <a href="../works.html" class="breadcrumb">← All Works</a>
+    <div class="hero-top-grid">
+      <div>
+        <div class="eyebrow">Vocal</div>
+        <h1 class="serif">Death is Nothing at All</h1>
+        <div class="subtitle">for SATB chorus and piano</div>
+      </div>
+      <figure class="score-cover">
+        <img src="../assets/death-is-nothing-at-all-cover.png" alt="Score cover for Death is Nothing at All by Joseph Dangerfield — American Composers Edition, for mixed chorus and piano">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Program Note</div>
+    </div>
+    <div class="about-body">
+      <p><em>Death is Nothing at All</em> is a setting of one of the most enduring and universally comforting texts on grief. The piece draws its inspiration and text from a 1910 sermon delivered by <a href="https://en.wikipedia.org/wiki/Henry_Scott_Holland" target="_blank" rel="noopener">Henry Scott-Holland</a>, then Canon of St. Paul&rsquo;s Cathedral, following the passing of King Edward VII. Though originally part of a larger homily titled &ldquo;The King of Terrors,&rdquo; the excerpt has transcended its original context to become celebrated globally as a standalone poem of profound resilience and healing.</p>
+      <p>Scott-Holland&rsquo;s text approaches mortality not with fear or dramatic despondency, but with an almost startling familiarity. It frames the departure of a loved one as a mere transition&mdash;a brief relocation &ldquo;into the next room&rdquo;&mdash;maintaining that personal identity, shared laughter, and unbroken continuity remain completely intact.</p>
+      <p>This setting captures this delicate psychological space. The music navigates the inherent tension between the immense internal gravity of loss and the text&rsquo;s explicit command to &ldquo;wear no forced air of solemnity or sorrow.&rdquo; Through his characteristic expressive vocabulary, Dangerfield crafts a sonic atmosphere that feels both intensely intimate and vast, allowing the voice to float through shifting emotional colors. The resulting work acts as a profound dialogue of comfort, capturing the fragile space where the living reach out to remember, smile, and find peace.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Details</div>
+    </div>
+    <div class="detail-bar">
+      <div>
+        <dt>Year Completed</dt>
+        <dd>2024</dd>
+      </div>
+      <div>
+        <dt>Duration</dt>
+        <dd>4′</dd>
+      </div>
+      <div>
+        <dt>Instrumentation</dt>
+        <dd>SATB chorus and piano</dd>
+      </div>
+      <div>
+        <dt>Purchase</dt>
+        <dd><a href="https://composers.com/products/dangerfield-death-is-nothing-at-all?variant=45501663084764" target="_blank" rel="noopener">American Composers Alliance</a></dd>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('siteNav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
