@@ -95,21 +95,36 @@
   }
 
   /* ---------- WORKS HERO ---------- */
-  .works-hero{padding:64px 0 48px;border-bottom:1px solid var(--line);}
-  .works-hero .eyebrow{margin-bottom:16px;}
-  .works-hero h1{
-    font-size:clamp(38px,6vw,64px);
-    font-weight:400;
-    letter-spacing:-.01em;
-    color:var(--ink);
-    margin-bottom:14px;
+  .works-hero{padding:64px 0 0;border-bottom:1px solid var(--line);overflow:hidden;}
+  .works-hero .wrap{padding-bottom:40px;}
+  .works-hero .eyebrow{margin-bottom:0;}
+
+  .works-hero-score{
+    position:relative;
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    height:clamp(180px,26vw,320px);
+    background:var(--ink);
+    overflow:hidden;
   }
-  .works-hero p{
-    font-family:'Archivo',sans-serif;
-    font-style:italic;
-    font-size:clamp(18px,2vw,22px);
-    color:var(--ink-soft);
-    max-width:48ch;
+  .works-hero-score img{
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:center 42%;
+    filter:grayscale(1) contrast(1.18) brightness(1.08);
+    display:block;
+  }
+  .works-hero-score .tint{
+    position:absolute;inset:0;
+    background:linear-gradient(115deg,var(--ink) 0%,var(--gold) 55%,var(--gold-soft) 100%);
+    mix-blend-mode:color;
+  }
+  .works-hero-score .fade{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(90deg,var(--paper) 0%,transparent 14%,transparent 86%,var(--paper) 100%),
+      linear-gradient(180deg,var(--paper) 0%,transparent 22%,transparent 78%,var(--paper) 100%);
+    pointer-events:none;
   }
 
   /* ---------- CONTROLS ---------- */
@@ -213,7 +228,9 @@
     }
     .nav-toggle span{height:1px;background:var(--ink);transition:background .3s;}
     .press-quote{padding:140px 0 48px;}
-    .works-hero{padding:48px 0 36px;}
+    .works-hero{padding:48px 0 0;}
+    .works-hero .wrap{padding-bottom:28px;}
+    .works-hero-score{height:200px;}
     .section-pad{padding:40px 0 64px;}
     .controls{flex-direction:column;align-items:flex-start;}
     .search-field{max-width:none;width:100%;}
@@ -259,8 +276,11 @@
 <section class="works-hero">
   <div class="wrap">
     <div class="eyebrow">Works</div>
-    <h1 class="serif">Works</h1>
-    <p>A catalog of concert works, 1997–present.</p>
+  </div>
+  <div class="works-hero-score">
+    <img src="assets/works-hero-score.png" alt="Excerpt from a hand-notated score by Joseph Dangerfield, with cued left/right hand markings." loading="eager">
+    <div class="tint"></div>
+    <div class="fade"></div>
   </div>
 </section>
 
@@ -381,10 +401,10 @@
       </div>
 
       <div class="work-row" data-category="chamber">
-        <div class="w-title"><span class="w-name">Aesgir</span><span class="w-cat">Chamber</span></div>
+        <div class="w-title"><span class="w-name"><a href="works/aegir.html">Ægir</a></span><span class="w-cat">Chamber</span></div>
         <div class="w-instr">Bass clarinet and marimba</div>
         <div class="w-dur">6′</div>
-        <div class="w-year">2016</div>
+        <div class="w-year">2017</div>
       </div>
 
       <div class="work-row" data-category="chamber">
@@ -542,7 +562,7 @@
       </div>
 
       <div class="work-row" data-category="chamber">
-        <div class="w-title"><span class="w-name">Dreams of Fin</span><span class="w-cat">Chamber</span></div>
+        <div class="w-title"><span class="w-name"><a href="works/dreams-of-fin.html">Dreams of Fin</a></span><span class="w-cat">Chamber</span></div>
         <div class="w-instr">Violin and piano</div>
         <div class="w-dur">8′</div>
         <div class="w-year">2006</div>
