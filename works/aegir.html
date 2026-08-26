@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ægir — Joseph Dangerfield</title>
+<meta name="description" content="Ægir, a work for bass clarinet and marimba by Joseph Dangerfield, commissioned by Transient Canvas and inspired by the Norse god of the sea.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15161b;
+    --ink-soft:#20222a;
+    --ivory:#f6f2e9;
+    --ivory-dim:#ece5d4;
+    --paper:#fbf9f4;
+    --gold:#b8975a;
+    --gold-soft:#d9c393;
+    --line:#e3dcc9;
+    --text-dim:#6b6a63;
+    --max:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Archivo',sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:16px 0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .brand{
+    font-family:'Archivo',sans-serif;
+    font-size:19px;
+    letter-spacing:.04em;
+    color:var(--ink);
+  }
+  nav ul{display:flex;gap:36px;list-style:none;}
+  nav a{
+    font-size:13px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--ink);
+    transition:color .3s ease;
+  }
+  nav a:hover{color:var(--gold);}
+  nav a.active{color:var(--gold);}
+  .nav-toggle{display:none;}
+
+  /* ---------- SECTIONS (shared) ---------- */
+  section{scroll-margin-top:100px;}
+  .section-pad{padding:96px 0;}
+  .section-head{margin-bottom:40px;}
+  .eyebrow{
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  }
+
+  /* ---------- WORK HERO ---------- */
+  .work-hero{padding:172px 0 56px;border-bottom:1px solid var(--line);}
+  .breadcrumb{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin-bottom:22px;
+    transition:color .25s ease;
+  }
+  .breadcrumb:hover{color:var(--gold);}
+  .work-hero .eyebrow{margin-bottom:16px;}
+  .work-hero h1{
+    font-size:clamp(38px,6vw,64px);
+    font-weight:400;
+    letter-spacing:-.01em;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .work-hero .subtitle{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    font-size:clamp(18px,2vw,22px);
+    color:var(--ink-soft);
+  }
+  .hero-top-grid{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:48px;
+    align-items:start;
+  }
+  .score-cover{width:180px;flex-shrink:0;}
+  .score-cover img{
+    width:100%;
+    border:1px solid var(--line);
+    box-shadow:0 24px 48px -24px rgba(21,22,27,0.25);
+  }
+  .score-cover figcaption{
+    margin-top:10px;
+    font-size:11px;
+    color:var(--text-dim);
+    line-height:1.5;
+  }
+
+  /* ---------- PROGRAM NOTE ---------- */
+  .about-body p{
+    color:var(--text-dim);
+    font-size:16px;
+    line-height:1.85;
+    margin-bottom:22px;
+    max-width:66ch;
+  }
+  .about-body p:last-child{margin-bottom:0;}
+  .about-body a{
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--gold-soft);
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .about-body a:hover{color:var(--gold);border-color:var(--gold);}
+  .note-signoff{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:15px;
+    margin-top:28px;
+  }
+
+  /* ---------- LISTEN (video) ---------- */
+  .video-embed{
+    position:relative;
+    width:100%;
+    padding-top:56.25%;
+    background:var(--ink);
+    border:1px solid var(--line);
+  }
+  .video-embed iframe{
+    position:absolute;
+    top:0;left:0;
+    width:100%;height:100%;
+    border:0;
+  }
+
+  /* ---------- DETAIL BAR ---------- */
+  .detail-bar{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:32px;
+    border-top:1px solid var(--line);
+    padding-top:36px;
+  }
+  .detail-bar dt{
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin-bottom:8px;
+  }
+  .detail-bar dd{
+    font-size:15px;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .detail-bar dd a{
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--gold-soft);
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .detail-bar dd a:hover{color:var(--gold);border-color:var(--gold);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    nav{position:fixed;inset:0;top:0;background:var(--ink);flex-direction:column;padding:110px 32px 40px;transform:translateY(-100%);transition:transform .4s ease;z-index:90;}
+    nav.open{transform:translateY(0);}
+    nav ul{flex-direction:column;gap:26px;}
+    nav a{color:var(--ivory);font-size:16px;}
+    .nav-toggle{
+      display:flex;flex-direction:column;gap:5px;
+      width:26px;z-index:110;cursor:pointer;background:none;border:none;
+    }
+    .nav-toggle span{height:1px;background:var(--ink);transition:background .3s;}
+    .work-hero{padding:140px 0 40px;}
+    .hero-top-grid{grid-template-columns:1fr;gap:28px;}
+    .score-cover{width:140px;}
+    .detail-bar{grid-template-columns:1fr 1fr;gap:28px;}
+    .section-pad{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="../index.html" class="brand">Joseph Dangerfield</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="siteNav">
+      <ul>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../current-work.html">Current Work</a></li>
+        <li><a href="../works.html" class="active">Works</a></li>
+        <li><a href="../listen.html">Listen</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="work-hero">
+  <div class="wrap">
+    <a href="../works.html" class="breadcrumb">← All Works</a>
+    <div class="hero-top-grid">
+      <div>
+        <div class="eyebrow">Chamber</div>
+        <h1 class="serif">Ægir</h1>
+        <div class="subtitle">for bass clarinet and marimba</div>
+      </div>
+      <figure class="score-cover">
+        <img src="../assets/aegir-cover.png" alt="Score cover for Ægir by Joseph Dangerfield, for bass clarinet and marimba, featuring an abstract painting by Ginger Danz">
+        <figcaption>Cover artwork by Ginger Danz, used by permission. All rights reserved.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Program Note</div>
+    </div>
+    <div class="about-body">
+      <p>The piece takes its title from <a href="https://en.wikipedia.org/wiki/%C3%86gir" target="_blank" rel="noopener">Ægir</a>, the Norse god of the sea, a powerful divinity traditionally associated with the untamed ocean waves, brewing, and hospitality. Rather than a literal, programmatic depiction of mythological scenes, Dangerfield&rsquo;s composition channels the elemental qualities of water&mdash;its vastness, undercurrents, and shifting fluid states.</p>
+      <p>Musically, <em>Ægir</em> utilizes a vocabulary of extended techniques and dense harmonic layers to generate a visceral, acoustic architecture. The music balances fragile, suspended stillness with volatile bursts of energy, mimicking the unpredictable currents of a wild sea. The instruments act as interdependent partners, weaving complex lines that dissolve into one another, leaving the audience suspended in a shifting, evocative landscape of pure sound. The work was commissioned by <a href="http://www.transientcanvas.com/" target="_blank" rel="noopener">Transient Canvas</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Listen</div>
+    </div>
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/6HI_QSfkcfI" title="Ægir — Joseph Dangerfield" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Details</div>
+    </div>
+    <div class="detail-bar">
+      <div>
+        <dt>Year Completed</dt>
+        <dd>2017</dd>
+      </div>
+      <div>
+        <dt>Duration</dt>
+        <dd>6′</dd>
+      </div>
+      <div>
+        <dt>Instrumentation</dt>
+        <dd>Bass clarinet and marimba</dd>
+      </div>
+      <div>
+        <dt>Purchase</dt>
+        <dd><a href="../contact.html">Inquiries</a></dd>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('siteNav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
