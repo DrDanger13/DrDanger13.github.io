@@ -187,16 +187,19 @@
 <section class="section-pad">
   <div class="wrap">
     <!--
-      FORM BACKEND: This form posts to Formspree (https://formspree.io).
-      To activate it:
-        1. Sign up free at formspree.io using jdangerf@gmail.com
-        2. Create a new form and copy its endpoint (looks like https://formspree.io/f/xxxxabcd)
-        3. Replace YOUR_FORM_ID below with that ID
-      Until then, submissions will not go through.
+      FORM BACKEND: This form posts to FormSubmit (https://formsubmit.co) — free, no account/dashboard needed.
+      ACTIVATION (one-time): the first real submission triggers a confirmation email to jdangerf@gmail.com.
+      Click the confirmation link in that email and the form is fully live from then on.
+      PRIVACY NOTE: the email address below is visible in this page's source. FormSubmit can issue a
+      randomized ID to replace it (so the address isn't scrapable) — see formsubmit.co/documentation
+      ("Get a random-like string to replace your naked email address") if that's wanted later; swap the
+      action URL below from the plain email to that ID once obtained.
     -->
-    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form class="contact-form" action="https://formsubmit.co/jdangerf@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="New message from josephdangerfield.com">
-        <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off">
 
         <div class="form-row">
           <div class="field">
