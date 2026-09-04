@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Waves Roll On, Thundering and Shimmering — Joseph Dangerfield</title>
+<meta name="description" content="The Waves Roll On, Thundering and Shimmering, a work for large ensemble by Joseph Dangerfield, commissioned by the Centre for Contemporary Music and the Studio New Music Ensemble at the Moscow Conservatory.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15161b;
+    --ink-soft:#20222a;
+    --ivory:#f6f2e9;
+    --ivory-dim:#ece5d4;
+    --paper:#fbf9f4;
+    --gold:#b8975a;
+    --gold-soft:#d9c393;
+    --line:#e3dcc9;
+    --text-dim:#6b6a63;
+    --max:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Archivo',sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:16px 0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .brand{
+    font-family:'Archivo',sans-serif;
+    font-size:19px;
+    letter-spacing:.04em;
+    color:var(--ink);
+  }
+  nav ul{display:flex;gap:36px;list-style:none;}
+  nav a{
+    font-size:13px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--ink);
+    transition:color .3s ease;
+  }
+  nav a:hover{color:var(--gold);}
+  nav a.active{color:var(--gold);}
+  .nav-toggle{display:none;}
+
+  /* ---------- SECTIONS (shared) ---------- */
+  section{scroll-margin-top:100px;}
+  .section-pad{padding:96px 0;}
+  .section-head{margin-bottom:40px;}
+  .eyebrow{
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  }
+
+  /* ---------- WORK HERO ---------- */
+  .work-hero{padding:172px 0 0;border-bottom:1px solid var(--line);overflow:hidden;}
+  .work-hero .wrap{padding-bottom:40px;}
+  .breadcrumb{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin-bottom:22px;
+    transition:color .25s ease;
+  }
+  .breadcrumb:hover{color:var(--gold);}
+  .work-hero .eyebrow{margin-bottom:16px;}
+  .work-hero h1{
+    font-size:clamp(34px,5.4vw,58px);
+    font-weight:400;
+    letter-spacing:-.01em;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .work-hero .subtitle{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    font-size:clamp(18px,2vw,22px);
+    color:var(--ink-soft);
+  }
+  .work-hero-score{
+    position:relative;
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    height:clamp(180px,26vw,320px);
+    background:var(--ink);
+    overflow:hidden;
+  }
+  .work-hero-score img{
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:center 42%;
+    filter:grayscale(1) contrast(1.18) brightness(1.08);
+    display:block;
+  }
+  .work-hero-score .tint{
+    position:absolute;inset:0;
+    background:linear-gradient(115deg,var(--ink) 0%,var(--gold) 55%,var(--gold-soft) 100%);
+    mix-blend-mode:color;
+  }
+  .work-hero-score .fade{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(90deg,var(--paper) 0%,transparent 14%,transparent 86%,var(--paper) 100%),
+      linear-gradient(180deg,var(--paper) 0%,transparent 22%,transparent 78%,var(--paper) 100%);
+    pointer-events:none;
+  }
+
+  /* ---------- PROGRAM NOTE ---------- */
+  .about-body p{
+    color:var(--text-dim);
+    font-size:16px;
+    line-height:1.85;
+    margin-bottom:22px;
+    max-width:66ch;
+  }
+  .about-body p:last-child{margin-bottom:0;}
+  .about-body a{
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--gold-soft);
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .about-body a:hover{color:var(--gold);border-color:var(--gold);}
+  .note-signoff{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:15px;
+    margin-top:28px;
+  }
+
+  /* ---------- DETAIL BAR ---------- */
+  .detail-bar{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:32px;
+    border-top:1px solid var(--line);
+    padding-top:36px;
+  }
+  .detail-bar dt{
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin-bottom:8px;
+  }
+  .detail-bar dd{
+    font-size:15px;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .detail-bar dd a{
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--gold-soft);
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .detail-bar dd a:hover{color:var(--gold);border-color:var(--gold);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    nav{position:fixed;inset:0;top:0;background:var(--ink);flex-direction:column;padding:110px 32px 40px;transform:translateY(-100%);transition:transform .4s ease;z-index:90;}
+    nav.open{transform:translateY(0);}
+    nav ul{flex-direction:column;gap:26px;}
+    nav a{color:var(--ivory);font-size:16px;}
+    .nav-toggle{
+      display:flex;flex-direction:column;gap:5px;
+      width:26px;z-index:110;cursor:pointer;background:none;border:none;
+    }
+    .nav-toggle span{height:1px;background:var(--ink);transition:background .3s;}
+    .work-hero{padding:140px 0 0;}
+    .work-hero .wrap{padding-bottom:28px;}
+    .work-hero-score{height:200px;}
+    .detail-bar{grid-template-columns:1fr 1fr;gap:28px;}
+    .section-pad{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="../index.html" class="brand">Joseph Dangerfield</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="siteNav">
+      <ul>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../current-work.html">Current Work</a></li>
+        <li><a href="../works.html" class="active">Works</a></li>
+        <li><a href="../listen.html">Listen</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="work-hero">
+  <div class="wrap">
+    <a href="../works.html" class="breadcrumb">← All Works</a>
+    <div class="eyebrow">Large Ensemble</div>
+    <h1 class="serif">The Waves Roll On, Thundering and Shimmering</h1>
+    <div class="subtitle">for large ensemble</div>
+  </div>
+  <div class="work-hero-score">
+    <img src="../assets/the-waves-roll-on-hero-score.png" alt="Excerpt from the score of The Waves Roll On, Thundering and Shimmering by Joseph Dangerfield, showing the piano, percussion, and string parts." loading="eager">
+    <div class="tint"></div>
+    <div class="fade"></div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Program Note</div>
+    </div>
+    <div class="about-body">
+      <p>The work&rsquo;s title is pulled directly from a line in <em>The Last Love</em>, a poignant poem by the celebrated Russian romantic poet Fyodor Tyutchev (1803&ndash;1873). In his poem, Tyutchev reflects on the intense, late-stage glow of an autumn romance, famously equating human emotion to a dual landscape where &ldquo;the waves roll on, thundering and shimmering.&rdquo; Dangerfield translates this literary imagery into sound, crafting an auditory space that balances bleak stasis with sudden, volatile energy.</p>
+      <p>Musically, the piece opens by projecting a stark, somewhat desolate sense of stillness. From this initial quietude, Dangerfield weaves a delicate yet massive sonic web. Melodic fragments begin to tear through the texture, giving way to explosions of glistening timbres and highly resonant acoustic clusters. The piano leads this narrative charge, supported by a precisely balanced &ldquo;symphonic complementation&rdquo; of single-part instruments and an active duo of percussionists. Rather than relying on traditional harmonic progressions, the piece relies on shifts in color, texture, and light, mimicking the unpredictable swelling, breaking, and eventual fading of massive oceanic waves.</p>
+      <p><em>The Waves Roll On, Thundering and Shimmering</em> served as Dangerfield&rsquo;s doctoral dissertation. It was commissioned by the Centre for Contemporary Music and the Studio New Music Ensemble at the Moscow Conservatory, with funding in part from a Capitol One Endowment for Faculty Research and Development, and premiered on 22 April 2006 in Rachmaninoff Hall at the Moscow Conservatory by the Studio New Music Ensemble, conducted by Igor Dronov.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Details</div>
+    </div>
+    <div class="detail-bar">
+      <div>
+        <dt>Year Completed</dt>
+        <dd>2005&ndash;06</dd>
+      </div>
+      <div>
+        <dt>Duration</dt>
+        <dd>15′</dd>
+      </div>
+      <div>
+        <dt>Instrumentation</dt>
+        <dd>Flute, oboe, clarinet, bassoon, horn, trumpet, trombone, bass trombone, two percussion, piano, and strings</dd>
+      </div>
+      <div>
+        <dt>Purchase</dt>
+        <dd><a href="../contact.html">Inquiries</a></dd>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('siteNav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
