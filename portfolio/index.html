@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Selected Works — Joseph Dangerfield</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15161b;
+    --ink-soft:#20222a;
+    --ivory:#f6f2e9;
+    --ivory-dim:#ece5d4;
+    --paper:#fbf9f4;
+    --gold:#b8975a;
+    --gold-soft:#d9c393;
+    --line:#e3dcc9;
+    --text-dim:#6b6a63;
+    --max:960px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Archivo',sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    padding:20px 0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .brand{font-family:'Archivo',sans-serif;font-size:19px;letter-spacing:.04em;}
+  .header-link{
+    font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--text-dim);
+    transition:color .25s ease;
+  }
+  .header-link:hover{color:var(--gold);}
+
+  .eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
+
+  /* ---------- INTRO ---------- */
+  .intro{padding:88px 0 56px;border-bottom:1px solid var(--line);}
+  .intro .eyebrow{margin-bottom:16px;}
+  .intro h1{
+    font-size:clamp(36px,5.5vw,58px);
+    font-weight:400;letter-spacing:-.01em;margin-bottom:18px;
+  }
+  .intro p{color:var(--text-dim);font-size:16px;line-height:1.8;max-width:62ch;}
+
+  /* ---------- CONTENTS ---------- */
+  .contents{padding:40px 0;border-bottom:1px solid var(--line);}
+  .contents ol{list-style:none;display:grid;gap:4px;}
+  .contents a{
+    display:grid;grid-template-columns:44px 1fr auto;gap:16px;align-items:baseline;
+    padding:10px 0;border-bottom:1px dotted var(--line);
+    transition:color .25s ease;
+  }
+  .contents li:last-child a{border-bottom:none;}
+  .contents a:hover{color:var(--gold);}
+  .contents .n{font-family:'Archivo',sans-serif;font-style:italic;color:var(--gold);font-size:15px;}
+  .contents .t{font-family:'Archivo',sans-serif;font-size:19px;}
+  .contents .m{font-size:13px;color:var(--text-dim);white-space:nowrap;}
+
+  /* ---------- WORK ENTRY ---------- */
+  .work{padding:80px 0;border-bottom:1px solid var(--line);scroll-margin-top:24px;}
+  .work-head{display:grid;grid-template-columns:44px 1fr;gap:16px;margin-bottom:28px;}
+  .work-head .n{font-family:'Archivo',sans-serif;font-style:italic;color:var(--gold);font-size:18px;padding-top:10px;}
+  .work-head .eyebrow{margin-bottom:10px;}
+  .work-head h2{font-size:clamp(30px,4vw,42px);font-weight:400;letter-spacing:-.01em;line-height:1.15;}
+  .work-head .subtitle{font-family:'Archivo',sans-serif;font-style:italic;font-size:19px;color:var(--ink-soft);margin-top:6px;}
+
+  .work-body{margin-left:60px;}
+  .facts{
+    display:flex;flex-wrap:wrap;gap:6px 28px;
+    font-size:13px;color:var(--text-dim);margin-bottom:24px;
+  }
+  .facts strong{color:var(--ink-soft);font-weight:500;}
+  .note{color:var(--text-dim);font-size:15.5px;line-height:1.85;max-width:64ch;margin-bottom:32px;}
+  .note em{color:var(--ink-soft);}
+
+  .media{margin-bottom:24px;}
+  .media-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;}
+  .video-embed{position:relative;width:100%;padding-top:56.25%;background:var(--ink);border:1px solid var(--line);}
+  .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .audio-player{border:1px solid var(--line);background:var(--ivory);padding:24px 28px;}
+  .audio-player audio{width:100%;display:block;}
+  .spotify-embed iframe{display:block;border:0;border-radius:12px;}
+  .caption{margin-top:12px;font-size:13px;color:var(--text-dim);}
+  .caption strong{color:var(--ink-soft);font-weight:600;}
+
+  .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:13px 22px;
+    background:var(--ink);color:var(--ivory);
+    font-size:13px;letter-spacing:.09em;text-transform:uppercase;
+    border:1px solid var(--ink);
+    transition:background .25s ease,color .25s ease,border-color .25s ease;
+  }
+  .btn:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+  .btn svg{width:15px;height:15px;flex-shrink:0;}
+  .text-link{
+    font-size:13px;letter-spacing:.06em;color:var(--ink-soft);
+    border-bottom:1px solid var(--gold-soft);padding-bottom:2px;
+    transition:color .25s ease,border-color .25s ease;
+  }
+  .text-link:hover{color:var(--gold);border-color:var(--gold);}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:64px 0 80px;}
+  footer p{color:var(--text-dim);font-size:14px;line-height:1.8;max-width:62ch;}
+  footer a{color:var(--ink-soft);border-bottom:1px solid var(--gold-soft);}
+  footer a:hover{color:var(--gold);border-color:var(--gold);}
+
+  @media (max-width:700px){
+    .wrap{padding:0 20px;}
+    .intro{padding:56px 0 40px;}
+    .work{padding:56px 0;}
+    .work-head{grid-template-columns:1fr;gap:4px;}
+    .work-head .n{padding-top:0;}
+    .work-body{margin-left:0;}
+    .contents a{grid-template-columns:32px 1fr;row-gap:2px;}
+    .contents .m{grid-column:2;white-space:normal;}
+    .audio-player{padding:18px 16px;}
+    .btn{width:100%;justify-content:center;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="../index.html" class="brand">Joseph Dangerfield</a>
+    <a href="../index.html" class="header-link">Full website</a>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <div class="eyebrow">Portfolio</div>
+    <h1 class="serif">Selected Works</h1>
+    <p>Six works spanning orchestra, chamber music, piano, and organ, each with a score and a recording. Scores open as PDFs in a new tab.</p>
+  </div>
+</section>
+
+<nav class="contents" aria-label="Works in this portfolio">
+  <div class="wrap">
+    <ol>
+      <li><a href="#cryptidology"><span class="n">1</span><span class="t">Cryptidology</span><span class="m">Piano &amp; orchestra · 2026</span></a></li>
+      <li><a href="#two-vestiges"><span class="n">2</span><span class="t">Two Vestiges</span><span class="m">Chamber orchestra · 2010 · 12′</span></a></li>
+      <li><a href="#the-solids"><span class="n">3</span><span class="t">The Solids</span><span class="m">Clarinet ensemble · 2017 · 12′</span></a></li>
+      <li><a href="#dreams-of-fin"><span class="n">4</span><span class="t">Dreams of Fin</span><span class="m">Violin &amp; piano · 2006 · 8′</span></a></li>
+      <li><a href="#remnants"><span class="n">5</span><span class="t">Remnants</span><span class="m">Piano · 2009 · 9′</span></a></li>
+      <li><a href="#microsuite"><span class="n">6</span><span class="t">MicroSuite</span><span class="m">Organ · 2009 · 8′</span></a></li>
+    </ol>
+  </div>
+</nav>
+
+<!-- 1. CRYPTIDOLOGY -->
+<article class="work" id="cryptidology">
+  <div class="wrap">
+    <div class="work-head">
+      <div class="n">1</div>
+      <div>
+        <div class="eyebrow">Piano &amp; Orchestra</div>
+        <h2 class="serif">Cryptidology</h2>
+        <div class="subtitle">A Concerto for Piano and Orchestra</div>
+      </div>
+    </div>
+    <div class="work-body">
+      <div class="facts">
+        <span><strong>2026</strong></span>
+        <span>Solo piano and full orchestra</span>
+        <span>Premiere: Bemidji Symphony Orchestra, Beverly Everett, cond.; Ann DuHamel, piano — May 2026</span>
+      </div>
+      <p class="note"><em>Cryptidology</em> draws on the stories and folklore of my native West Virginia. The first movement, <em>Mothman Commeth</em>, is an exploration of timbre and color built around the Mothman legend of Point Pleasant; the second, <em>Zona's Lullaby</em>, takes up the 1897 case of Zona Heaster Shue, the only known U.S. murder conviction aided by testimony said to come from a ghost.</p>
+      <!-- RECORDING: add once supplied
+      <div class="media">
+        <div class="media-label">Recording</div>
+        <div class="audio-player">
+          <audio controls controlsList="nodownload" oncontextmenu="return false" preload="metadata" src="../assets/cryptidology.mp3">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+      -->
+      <div class="actions">
+        <a class="btn" href="../assets/scores/Cryptidology_-_Full_Score_ACA.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>View score (PDF)</a>
+        <a class="text-link" href="../current-work.html">Work page</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 2. TWO VESTIGES -->
+<article class="work" id="two-vestiges">
+  <div class="wrap">
+    <div class="work-head">
+      <div class="n">2</div>
+      <div>
+        <div class="eyebrow">Large Ensemble</div>
+        <h2 class="serif">Two Vestiges</h2>
+        <div class="subtitle">for chamber orchestra</div>
+      </div>
+    </div>
+    <div class="work-body">
+      <div class="facts">
+        <span><strong>2009–2010</strong></span>
+        <span><strong>12′</strong></span>
+        <span>Sinfonietta</span>
+        <span>Premiere: Studio New Music Ensemble, Moscow Conservatory, Igor Dronov, cond. — April 24, 2010</span>
+        <span>Indianapolis Chamber Orchestra Composition Prize, 2010</span>
+      </div>
+      <p class="note">Two movements, each a sonic reading of an artistic or spatial design encountered in Europe: <em>Ribbon Sculpture</em>, after the work of Ursula Burghardt, weaves intertwining lines that collide and dissolve; <em>Japanese Garden (karesansui)</em> slows perception to the stillness of a dry landscape garden, with rippling textures around stark solo colors.</p>
+      <div class="media">
+        <div class="media-label">Recording</div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/gEYR_e2PIAU" title="Two Vestiges — Joseph Dangerfield" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="../assets/scores/Two_Vestiges_Score.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>View score (PDF)</a>
+        <a class="text-link" href="../works/two-vestiges.html">Work page</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 3. THE SOLIDS -->
+<article class="work" id="the-solids">
+  <div class="wrap">
+    <div class="work-head">
+      <div class="n">3</div>
+      <div>
+        <div class="eyebrow">Chamber</div>
+        <h2 class="serif">The Solids</h2>
+        <div class="subtitle">for spatialized clarinet ensemble</div>
+      </div>
+    </div>
+    <div class="work-body">
+      <div class="facts">
+        <span><strong>2017</strong></span>
+        <span><strong>12′</strong></span>
+        <span>I. Cube · II. Tetrahedron · III. Icosahedron</span>
+        <span>Premiere: University of Florida, April 4, 2017</span>
+      </div>
+      <p class="note">Geometric form and physical mass translated into sound. Firmly rooted pitch centers and unyielding motivic blocks act as the &ldquo;solids,&rdquo; set against fleeting passages that move around them like light across sculpture, so that the music is heard as a space to be inhabited as much as a line through time.</p>
+      <div class="media">
+        <div class="media-label">Recording</div>
+        <div class="audio-player">
+          <audio controls controlsList="nodownload" oncontextmenu="return false" preload="metadata" src="../assets/the-solids-i-cube.mp3">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <p class="caption"><strong>I. Cube.</strong> First movement only.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="../assets/scores/Solids_The_Cube_-_Full_Score.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>View score: I. Cube (PDF)</a>
+        <a class="text-link" href="../works/the-solids.html">Work page</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 4. DREAMS OF FIN -->
+<article class="work" id="dreams-of-fin">
+  <div class="wrap">
+    <div class="work-head">
+      <div class="n">4</div>
+      <div>
+        <div class="eyebrow">Chamber</div>
+        <h2 class="serif">Dreams of Fin</h2>
+        <div class="subtitle">for violin and piano</div>
+      </div>
+    </div>
+    <div class="work-body">
+      <div class="facts">
+        <span><strong>2006</strong></span>
+        <span><strong>8′</strong></span>
+        <span>Commissioned by Wolfgang David</span>
+        <span>Recorded by Wolfgang David &amp; David Gompper, Albany Records</span>
+      </div>
+      <p class="note">A musical dialogue with David Gompper's <em>Finnegan's Wake</em>, taking its cues from Joyce's dream world. Violin and piano act as equal partners in a dense, atmospheric texture, moving between driving virtuosity and fragile, suspended stillness.</p>
+      <div class="media">
+        <div class="media-label">Recording</div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/vFMzN2jQA0A" title="Dreams of Fin — Joseph Dangerfield" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="../assets/scores/Dreams_of_Fin_ACE.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>View score (PDF)</a>
+        <a class="text-link" href="../works/dreams-of-fin.html">Work page</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 5. REMNANTS -->
+<article class="work" id="remnants">
+  <div class="wrap">
+    <div class="work-head">
+      <div class="n">5</div>
+      <div>
+        <div class="eyebrow">Solo</div>
+        <h2 class="serif">Remnants</h2>
+        <div class="subtitle">of time and space, for piano</div>
+      </div>
+    </div>
+    <div class="work-body">
+      <div class="facts">
+        <span><strong>2009</strong></span>
+        <span><strong>9′</strong></span>
+        <span>Seven movements in two parts</span>
+      </div>
+      <p class="note">Written while I was living in Russia, <em>Remnants</em> is a travelogue of two places: Moscow and the vast, silent expanse of Lake Baikal. Part I concerns time, movement, and physical space, its continuum broken in the third movement by a descending gesture carried over from the second; Part II turns to the fluctuations and atmosphere of the Siberian landscape.</p>
+      <div class="media">
+        <div class="media-label">Recording</div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/C5pPI6Bv4rk" title="Remnants — Joseph Dangerfield" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="../assets/scores/Dangerfield_Remnants.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>View score (PDF)</a>
+        <a class="text-link" href="../works/remnants.html">Work page</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 6. MICROSUITE -->
+<article class="work" id="microsuite">
+  <div class="wrap">
+    <div class="work-head">
+      <div class="n">6</div>
+      <div>
+        <div class="eyebrow">Solo</div>
+        <h2 class="serif">MicroSuite</h2>
+        <div class="subtitle">for organ</div>
+      </div>
+    </div>
+    <div class="work-body">
+      <div class="facts">
+        <span><strong>2009</strong></span>
+        <span><strong>8′</strong></span>
+        <span>Commissioned by Carson Cooman</span>
+      </div>
+      <p class="note">An experiment in form: five distinct dance forms drawn from the Baroque suite, each reduced to its essentials and compressed into a single, tightly knit movement. Dense registration changes are set against sudden minimalist restraint.</p>
+      <div class="media">
+        <div class="media-label">Recording</div>
+        <div class="spotify-embed">
+          <iframe src="https://open.spotify.com/embed/track/5ZmYoHZboa16sxoKDyYEFP?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="MicroSuite on Spotify"></iframe>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="../assets/scores/MicroSuite.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>View score (PDF)</a>
+        <a class="text-link" href="../works/microsuite.html">Work page</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <p>Further scores and recordings are available on request. The complete catalog is at <a href="../works.html">josephdangerfieldmusic.com/works</a>, or get in touch through the <a href="../contact.html">contact page</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
