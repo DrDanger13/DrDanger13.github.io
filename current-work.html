@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Current Work — Joseph Dangerfield</title>
-<meta name="description" content="Cryptidology, a concerto for piano and orchestra by Joseph Dangerfield, premiering May 2026 with the Bemidji Symphony Orchestra.">
+<meta name="description" content="Little Sins, for SSAATB choir and piano by Joseph Dangerfield, setting Rebecca Morgan Frank's poem &ldquo;Peccadillos.&rdquo; Written in 2026 for Kym Scott and the West Virginia University Choir; premiering spring 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -104,10 +104,48 @@
     margin-top:28px;
   }
 
+  .about-body a{
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--gold-soft);
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .about-body a:hover{color:var(--gold);border-color:var(--gold);}
+
+  /* ---------- POEM ---------- */
+  .poem{
+    font-family:'Archivo',sans-serif;
+    color:var(--ink-soft);
+    font-size:17px;
+    line-height:1.75;
+  }
+  .poem h3{
+    font-size:clamp(21px,2.4vw,26px);
+    font-weight:400;
+    color:var(--ink);
+    margin-bottom:26px;
+  }
+  .poem .stanza{margin-bottom:1.75em;}
+  .poem .stanza span{display:block;}
+  .poem .i1{padding-left:3em;}
+  .poem .i2{padding-left:6em;}
+  .poem-credit{
+    font-family:'Archivo',sans-serif;
+    font-style:italic;
+    font-size:15px;
+    color:var(--ink-soft);
+    margin-top:8px;
+  }
+  .poem-credit a{
+    border-bottom:1px solid var(--gold-soft);
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .poem-credit a:hover{color:var(--gold);border-color:var(--gold);}
+  .poem-perm{font-size:12.5px;color:var(--text-dim);margin-top:10px;}
+
   /* ---------- PREMIERE BAR ---------- */
   .premiere-bar{
     display:grid;
-    grid-template-columns:repeat(5, 1fr);
+    grid-template-columns:repeat(4, 1fr);
     gap:32px;
     border-top:1px solid var(--line);
     padding-top:36px;
@@ -194,6 +232,9 @@
     .movement{grid-template-columns:1fr;gap:10px;}
     .premiere-bar{grid-template-columns:1fr 1fr;gap:28px;}
     .score-gallery{grid-template-columns:1fr;}
+    .poem{font-size:16px;}
+    .poem .i1{padding-left:1.75em;}
+    .poem .i2{padding-left:3.5em;}
     .section-pad{padding:64px 0;}
   }
   @media (min-width:861px) and (max-width:1080px){
@@ -224,40 +265,69 @@
 <section class="work-hero">
   <div class="wrap">
     <div class="eyebrow">Current Work</div>
-    <h1 class="serif">Cryptidology</h1>
-    <div class="subtitle">A Concerto for Piano and Orchestra</div>
+    <h1 class="serif">Little Sins</h1>
+    <div class="subtitle">for SSAATB choir and piano</div>
   </div>
 </section>
 
 <section class="section-pad">
   <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Program Note</div>
+    </div>
     <div class="about-body">
-      <p><em>Cryptidology</em> is a work that represents some of the stories and folklore of my native West Virginia.</p>
+      <p><em>Little Sins</em> portrays the inhumane treatment of people by the United States government and the fascist organization commonly known as ICE. The work sets <a href="https://www.rebeccamorganfrank.com/" target="_blank" rel="noopener">Rebecca Morgan Frank</a>&rsquo;s poem &ldquo;Peccadillos,&rdquo; a catalogue of the small transgressions and discomforts of the time her grandfather spent in civilian internment camps in the Philippines during World War II. The poem&rsquo;s title gives the work its name, and its lines move the way gossip does, from the trivial to the confessional, until a plea for deliverance takes over. Looking at how the poem is laid out on the page, I imagined the empty space that recurs at the start of each line as a prison cell, and its repetition as the monotony of being forced to live this way, unjustly. A short piano motive returns throughout the piece to represent that cell.</p>
+      <p>The piece opens with the piano alone, and a solo voice introduces the first lines, &ldquo;There is nothing but body / and memory here.&rdquo; The full choir enters with the local news, and the texture grows as each new sin is added to the list. At the confessional, &ldquo;a chamber of horrors,&rdquo; the music slows to Lento as the voices pass &ldquo;death wished&rdquo; among themselves, the victims collectively weighing what must feel like their only available relief. The final stanza turns the language of prayer into a litany: &ldquo;deliver us from hunger&rdquo; becomes a repeated, insistent &ldquo;hunger,&rdquo; and in the closing bars one singer in each section speaks the words &ldquo;deliver us&rdquo; over the sung texture, a plea for freedom.</p>
+      <p><em>Little Sins</em> was written in 2026 for Kym Scott and the West Virginia University Choir.</p>
     </div>
   </div>
 </section>
 
-<section class="movements section-pad" style="padding-top:0;">
+<section class="section-pad" style="padding-top:0;">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Movements</div>
+      <div class="eyebrow">Text</div>
     </div>
-    <div class="movements">
-      <div class="movement">
-        <div class="num">I.</div>
-        <div>
-          <h3 class="serif">Mothman Commeth</h3>
-          <p>An exploration in timbre and color built around the Mothman legend — a seven-foot, red-eyed, winged creature said to have appeared during the collapse of the Silver Bridge in Point Pleasant, West Virginia, in 1967. In Appalachian folklore, its appearance is taken as an omen of disaster to come.</p>
+    <div class="poem">
+      <h3 class="serif">Peccadillos</h3>
+        <div class="stanza">
+          <span>There is nothing but body</span>
+          <span class="i1">and memory here,</span>
+          <span class="i2">local news</span>
+          <span class="i1">of petty crimes</span>
+          <span>betrayals over sugar.</span>
         </div>
-      </div>
-      <div class="movement">
-        <div class="num">II.</div>
-        <div>
-          <h3 class="serif">Zona's Lullaby</h3>
-          <p>Drawn from the story of Elva Zona Heaster Shue, murdered by her husband in 1897. Ruled a natural death until her mother's testimony — that Zona's spirit appeared to her and revealed a broken neck — led to an exhumation that confirmed it. The only known case in U.S. history in which testimony from a spirit helped convict a murderer.</p>
+        <div class="stanza">
+          <span>A divorce from a man</span>
+          <span class="i1">who stole</span>
+          <span class="i2">his baby&rsquo;s milk.</span>
+          <span class="i1">A missing perfume bottle</span>
+          <span>from beneath a bed.</span>
         </div>
-      </div>
+        <div class="stanza">
+          <span>Rumors ripe with</span>
+          <span class="i1">lives lived</span>
+          <span class="i2">before&ndash; the dancer</span>
+          <span class="i1">kicking the housewife</span>
+          <span>who snores.</span>
+        </div>
+        <div class="stanza">
+          <span>The confessional</span>
+          <span class="i1">a chamber of horrors&ndash;</span>
+          <span class="i2">death wished</span>
+          <span class="i1">on enemies, friends,</span>
+          <span>spouses, and war.</span>
+        </div>
+        <div class="stanza">
+          <span>Deliver us from</span>
+          <span class="i1">evil, deliver us from</span>
+          <span class="i2">here,</span>
+          <span class="i1">deliver us from hunger.</span>
+          <span>deliver us, deliver us.</span>
+        </div>
     </div>
+    <p class="poem-credit">&mdash; <a href="https://www.rebeccamorganfrank.com/" target="_blank" rel="noopener">Rebecca Morgan Frank</a></p>
+    <p class="poem-perm">Used by permission of the author.</p>
   </div>
 </section>
 
@@ -268,24 +338,42 @@
     </div>
     <div class="premiere-bar">
       <div>
-        <dt>Orchestra</dt>
-        <dd><a href="https://www.bemidjisymphony.org/" target="_blank" rel="noopener">Bemidji Symphony Orchestra</a></dd>
+        <dt>Ensemble</dt>
+        <dd>West Virginia University Chamber Choir</dd>
       </div>
       <div>
         <dt>Conductor</dt>
-        <dd><a href="https://www.beverlyeverett.org/" target="_blank" rel="noopener">Beverly Everett</a></dd>
-      </div>
-      <div>
-        <dt>Piano Soloist</dt>
-        <dd><a href="https://annduhamel.com/" target="_blank" rel="noopener">Ann DuHamel</a></dd>
+        <dd>Kym Scott</dd>
       </div>
       <div>
         <dt>Date</dt>
-        <dd>May 2026</dd>
+        <dd>Spring 2027</dd>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Details</div>
+    </div>
+    <div class="premiere-bar">
+      <div>
+        <dt>Year Completed</dt>
+        <dd>2026</dd>
+      </div>
+      <div>
+        <dt>Duration</dt>
+        <dd>5′</dd>
       </div>
       <div>
         <dt>Instrumentation</dt>
-        <dd>Solo piano and full orchestra</dd>
+        <dd>SSAATB choir and piano</dd>
+      </div>
+      <div>
+        <dt>Text</dt>
+        <dd><a href="https://www.rebeccamorganfrank.com/" target="_blank" rel="noopener">Rebecca Morgan Frank</a></dd>
       </div>
     </div>
   </div>
@@ -298,16 +386,16 @@
     </div>
     <div class="score-gallery">
       <figure class="score-figure">
-        <img src="assets/score-p33.png" alt="A page from the full orchestral score of Cryptidology, showing rehearsal marks 211–216 with dense activity across winds, brass, percussion, piano, and strings.">
-        <figcaption>p. 33 (rehearsal 211–216)</figcaption>
+        <img src="assets/little-sins-score-p5.png" alt="Page 5 of the score of Little Sins: the full choir enters together on the words &ldquo;local news of petty crimes, betrayals.&rdquo;">
+        <figcaption>p. 5 (&ldquo;local news of petty crimes&rdquo;)</figcaption>
       </figure>
       <figure class="score-figure">
-        <img src="assets/score-p35.png" alt="A page from the full orchestral score of Cryptidology, showing rehearsal marks 228–237 with extended techniques and varied percussion including truck spring, temple bowls, and glockenspiel.">
-        <figcaption>p. 35 (rehearsal 228–237)</figcaption>
+        <img src="assets/little-sins-score-p14.png" alt="Page 14 of the score of Little Sins: the Lento section, with voices passing the words &ldquo;death wished&rdquo; among themselves.">
+        <figcaption>p. 14 (Lento, &ldquo;death wished&rdquo;)</figcaption>
       </figure>
       <figure class="score-figure">
-        <img src="assets/score-p49.png" alt="A page from the full orchestral score of Cryptidology, showing rehearsal marks 70–81 with vibraphone, gong, bass drum, and piano entrances.">
-        <figcaption>p. 49 (rehearsal 70–81)</figcaption>
+        <img src="assets/little-sins-score-p20.png" alt="Page 20 of the score of Little Sins: the closing litany, with one singer per section speaking &ldquo;deliver us&rdquo; over the sung texture.">
+        <figcaption>p. 20 (&ldquo;deliver us&rdquo;)</figcaption>
       </figure>
     </div>
   </div>
