@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Pasoti Beta: Tester Guide — Joseph Dangerfield</title>
+<meta name="description" content="Tester guide for the Pasoti beta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#15161b;--ink-soft:#20222a;--ivory:#f6f2e9;--paper:#fbf9f4;--gold:#b8975a;--line:#e3dcc9;--text-dim:#6b6a63;--max:1120px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,.serif{font-family:'Archivo',sans-serif;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:var(--paper);border-bottom:1px solid var(--line);}
+header .wrap{display:flex;align-items:center;justify-content:space-between;}
+.brand{font-family:'Archivo',sans-serif;font-size:19px;letter-spacing:.04em;}
+nav ul{display:flex;gap:36px;list-style:none;}
+nav a{font-size:13px;letter-spacing:.09em;text-transform:uppercase;transition:color .3s ease;}
+nav a:hover{color:var(--gold);}
+.nav-toggle{display:none;}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
+.hero{padding:172px 0 56px;border-bottom:1px solid var(--line);}
+.hero .eyebrow{margin-bottom:16px;}
+.hero h1{font-size:clamp(38px,6vw,64px);font-weight:400;letter-spacing:-.01em;margin-bottom:14px;}
+.hero p{font-family:'Archivo',sans-serif;font-style:italic;font-size:clamp(18px,2vw,22px);color:var(--ink-soft);max-width:48ch;}
+.section-pad{padding:64px 0;}
+.content>*{max-width:700px;}
+.content h2{font-size:clamp(24px,3vw,30px);font-weight:400;margin:44px 0 14px;}
+.content h2:first-child{margin-top:0;}
+.content p,.content li{font-size:16px;color:var(--ink-soft);margin-bottom:12px;}
+.content ul,.content ol{padding-left:22px;margin-bottom:12px;}
+.content a.inline{color:var(--gold);border-bottom:1px solid var(--gold);}
+.dl-btn{display:inline-block;padding:16px 38px;background:var(--ink);color:var(--ivory);font-size:13px;letter-spacing:.1em;text-transform:uppercase;transition:background .25s ease;}
+.dl-btn:hover{background:var(--gold);color:var(--ink);}
+.meta{font-size:13px;color:var(--text-dim);margin-top:12px;}
+.content h3{font-family:'Archivo',sans-serif;font-size:17px;font-weight:600;margin:22px 0 8px;}
+.content pre{background:#ece5d4;padding:12px 16px;font-size:14px;overflow-x:auto;margin:0 0 14px;}
+.content code{background:#ece5d4;padding:2px 6px;font-size:14px;}
+.content pre code{padding:0;background:none;}
+@media (max-width:860px){
+nav{position:fixed;inset:0;top:0;background:var(--ink);flex-direction:column;padding:110px 32px 40px;transform:translateY(-100%);transition:transform .4s ease;z-index:90;}
+nav.open{transform:translateY(0);}
+nav ul{flex-direction:column;gap:26px;}
+nav a{color:var(--ivory);font-size:16px;}
+.nav-toggle{display:flex;flex-direction:column;gap:5px;width:26px;z-index:110;cursor:pointer;background:none;border:none;}
+.nav-toggle span{height:1px;background:var(--ink);}
+.hero{padding:140px 0 40px;}
+.section-pad{padding:48px 0;}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<a href="index.html" class="brand">Joseph Dangerfield</a>
+<button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+<nav id="siteNav">
+<ul>
+<li><a href="about.html">About</a></li>
+<li><a href="current-work.html">Current Work</a></li>
+<li><a href="works.html">Works</a></li>
+<li><a href="listen.html">Listen</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="wrap">
+<div class="eyebrow">Pasoti Beta</div>
+<h1 class="serif">Tester Guide</h1>
+<p>How to install Pasoti, what to try, and how to send a report. Updated 13 November 2026 &middot; Version 0.5.0-beta.9</p>
+</div>
+</section>
+
+<section class="section-pad">
+<div class="wrap content">
+
+<h2 class="serif">What Pasoti does</h2>
+<p>Pasoti turns a choral score into a piano reduction you can open in Dorico. You give it a PDF exported from Dorico or Sibelius, or a MusicXML file. It reads the voices, builds a keyboard reduction, and saves a MusicXML file that Dorico imports.</p>
+<p>The reduction follows keyboard conventions: voices that move together become chords, held notes stay tied, stems do not cross, and the middle of the bar is never hidden.</p>
+<p>This beta asks one question: does Pasoti read your score correctly, and is the reduction something you would play? Your reports show me where the answer is no.</p>
+
+<h2 class="serif">What you need</h2>
+<ul>
+<li>A Mac with Apple Silicon (M1 or newer). This beta does not run on Intel Macs.</li>
+<li>A choral score as a <strong>vector PDF exported from Dorico or Sibelius</strong>, or a MusicXML file.</li>
+<li>Voice staves labelled Soprano, Alto, Tenor, Bass (or S, A, T, B). Divisi and numbered parts such as Soprano I and II work too.</li>
+</ul>
+<p><strong>Export the PDF straight from your notation program</strong> (in both Dorico and Sibelius this is under File &gt; Export &gt; PDF). A scan, a photo, or a PDF made by printing a scan will not work, because Pasoti reads the notes from the PDF's drawing data.</p>
+<p>Export the full score, not individual parts. If the piece has a piano part, leave it in; Pasoti ignores it.</p>
+
+<h2 class="serif">Install</h2>
+<p><strong>Download:</strong> <a class="inline" href="pasoti.html">josephdangerfieldmusic.com/pasoti.html</a><br>
+Direct file: <a class="inline" href="https://github.com/DrDanger13/DrDanger13.github.io/releases/download/v0.5.0-beta.9/Pasoti-0.5.0-beta.9-mac.tar.gz">Pasoti-0.5.0-beta.9-mac.tar.gz</a></p>
+<ol>
+<li>Download the file named like <code>Pasoti-0.5.0-beta.9-mac.tar.gz</code>. Double-click it to unpack. You get an app called <strong>Pasoti</strong>.</li>
+<li>Drag Pasoti into your <strong>Applications</strong> folder.</li>
+<li>The first time, hold <strong>Control</strong> and click Pasoti, choose <strong>Open</strong>, then click <strong>Open</strong> again. This beta is not yet registered with Apple, so a plain double-click may be refused the first time.</li>
+<li>If macOS says the app cannot be opened or is damaged, open <strong>System Settings &gt; Privacy &amp; Security</strong>, scroll down, and click <strong>Open Anyway</strong> next to Pasoti. Then open it again.</li>
+</ol>
+<p>If neither works, open Terminal and run this once, then open Pasoti normally:</p>
+<pre>xattr -dr com.apple.quarantine /Applications/Pasoti.app</pre>
+<p>Once it opens, you will see a box that says <strong>Drop a choral score here</strong>. To check which version you have, choose <strong>Pasoti &gt; About Pasoti</strong> from the menu bar.</p>
+
+<h2 class="serif">Using Pasoti</h2>
+<ol>
+<li><strong>Open your score.</strong> Drop the PDF (or MusicXML file) onto the window, or click <strong>Open score</strong>. Reading takes a few seconds per page.</li>
+<li><strong>Look at the reduction.</strong> The piano score appears on the page. Use the arrows to turn pages and the size buttons to zoom. Play from this page lets you hear it.</li>
+<li><strong>Compare against your score.</strong> Check pitches, rhythms, bar lines, ties, and whether the reduction looks like keyboard music rather than four vocal lines on two staves.</li>
+<li><strong>Adjust if you like.</strong> The panel on the left changes how dense the reduction is and how the hands split.</li>
+<li><strong>Save for Dorico.</strong> Click <strong>Save for Dorico</strong>, then in Dorico choose File &gt; Import &gt; MusicXML and pick the saved file.</li>
+</ol>
+<p>If Pasoti finds bars that do not add up, it tells you at the top of the window which bars to check against your printed score. Treat those bars with suspicion.</p>
+
+<h2 class="serif">What it can and cannot read</h2>
+<h3>Works in this beta</h3>
+<ul>
+<li>Vector PDFs from Dorico and from Sibelius</li>
+<li>Choral scores with separate voice staves: SATB, divisi, and solo parts</li>
+<li>Scores with a piano part (the piano staves are ignored)</li>
+<li>MusicXML files from any program</li>
+</ul>
+<h3>Does not work yet</h3>
+<ul>
+<li>Scans or photos of printed music</li>
+<li>Piano-only scores or scores without labelled voices</li>
+<li>PDFs from Finale or MuseScore. They may read, but they are not part of this test.</li>
+<li>Orchestral scores as PDFs. Orchestral MusicXML files can be reduced, but PDF reading is built for choral scores.</li>
+</ul>
+<h3>Known rough spots</h3>
+<ul>
+<li>Sibelius PDFs can leave a few bars a little short, usually where a dotted rhythm is beamed. Pasoti flags these bars for you.</li>
+<li>Very dense or unusual notation (tuplets, cross-staff beaming, unusual clefs) is the most likely to go wrong.</li>
+<li>Lyrics are not carried into the reduction. That is intended.</li>
+</ul>
+
+<h2 class="serif">What to test</h2>
+<p>Try two or three of your own scores, ideally ones with different textures: a homophonic hymn, something with divisi, something with fast eighths or syncopation. Then look for:</p>
+<ul>
+<li><strong>Wrong notes:</strong> a wrong pitch, a missing note, a note in the wrong octave (check the tenor line in particular), a missing sharp or flat.</li>
+<li><strong>Wrong rhythms:</strong> a note held too long or short, ties that are missing or point the wrong way, rests in the wrong place.</li>
+<li><strong>Wrong bars:</strong> extra or missing bars, a pickup bar that breaks the count, a meter change that is not followed.</li>
+<li><strong>Reductions that look wrong:</strong> vocal lines stacked on piano staves instead of keyboard music, stems that cross, long tied notes that should be one note, the middle of the bar hidden.</li>
+<li><strong>Anything that stops working:</strong> a file that will not open, a freeze, or a message that makes no sense.</li>
+</ul>
+<p><strong>A good report names the bar.</strong> &ldquo;Bar 14, tenor, the second note should be a quarter&rdquo; is enough for me to find and fix it. &ldquo;The tenor looks wrong&rdquo; is hard to act on. If you know how the bar should read, say so; that is the most useful thing you can tell me.</p>
+
+<h2 class="serif">Sending a report</h2>
+<p>With the score still open in Pasoti:</p>
+<ol>
+<li>Click <strong>Report a problem</strong> at the top of the window.</li>
+<li>Choose what went wrong, then fill in <strong>Where</strong> (for example &ldquo;bars 14 to 16, tenor&rdquo;) and what you expected to see.</li>
+<li>Add your email address if you would like a reply. This is optional.</li>
+<li>Leave <strong>Send a copy of my score and the reduction</strong> ticked if you can. It lets me see exactly what you saw. Untick it if the score is not yours to share.</li>
+<li>Click <strong>Send report</strong>. When it says <strong>Sent</strong>, you are done.</li>
+</ol>
+<p>If the report cannot be sent, for example because you are offline, Pasoti opens an email to me instead. In Apple Mail the report is attached automatically. In another mail program, drag the report file from the Finder window that opens into the email, then press Send.</p>
+<p>A copy of every report is also kept on your computer in <strong>Documents &gt; Pasoti Reports</strong>.</p>
+<p><strong>What a report contains:</strong> your description, the Pasoti version and your macOS version, how Pasoti read the PDF (the program that made it, the number of bars, and which bars did not add up), and, if you left the box ticked, the music it read, the reduction, and the original PDF.</p>
+
+<h2 class="serif">Privacy and contact</h2>
+<p>Pasoti works entirely on your computer. It sends nothing anywhere unless you click <strong>Send report</strong>. It has no tracking and does not report on its own.</p>
+<p>A report goes to one inbox, pasotibeta@gmail.com, and is used only to fix Pasoti. If you attach your score, I use it only to reproduce the problem, and I will delete it afterwards on request. Please do not send scores you do not have the right to share; untick the box instead and describe the problem in words.</p>
+<p>Questions, ideas, or something that will not fit in the report form: email <strong>pasotibeta@gmail.com</strong>.</p>
+<p>Thank you for testing. Every report makes the reductions better for the next composer.</p>
+
+</div>
+</section>
+
+<script>
+const toggle=document.getElementById('navToggle');const nav=document.getElementById('siteNav');
+toggle.addEventListener('click',()=>{nav.classList.toggle('open');});
+nav.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>nav.classList.remove('open')));
+</script>
+</body>
+</html>
