@@ -92,6 +92,8 @@ nav a{color:var(--ivory);font-size:16px;}
 <li>Download the file above. Your Mac will usually unpack it for you; otherwise double-click it.</li>
 <li>Drag <strong>Pasoti</strong> into your Applications folder.</li>
 <li>The first time, macOS may say it cannot verify the developer. Control-click (or right-click) Pasoti, choose <strong>Open</strong>, then click <strong>Open</strong> again. After that it opens normally.</li>
+<li>If macOS says the app cannot be opened or is damaged, open <strong>System Settings &gt; Privacy &amp; Security</strong>, scroll down, and click <strong>Open Anyway</strong> next to Pasoti. Then open it again.</li>
+<li>If neither works, open Terminal and run this once, then open Pasoti normally:<br><code style="background:#ece5d4;padding:2px 6px;font-size:14px;">xattr -dr com.apple.quarantine /Applications/Pasoti.app</code></li>
 </ol>
 
 <h2 class="serif">Use</h2>
