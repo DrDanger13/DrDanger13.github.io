@@ -105,9 +105,9 @@ Direct file: <a class="inline" href="https://github.com/DrDanger13/DrDanger13.gi
 <li>Download the file named like <code>Pasoti-0.5.0-beta.11-mac.tar.gz</code>. Double-click it to unpack. You get an app called <strong>Pasoti</strong>.</li>
 <li>Drag Pasoti into your <strong>Applications</strong> folder.</li>
 <li>The first time, hold <strong>Control</strong> and click Pasoti, choose <strong>Open</strong>, then click <strong>Open</strong> again. This beta is not yet registered with Apple, so a plain double-click may be refused the first time.</li>
-<li>If macOS says the app cannot be opened or is damaged, open <strong>System Settings &gt; Privacy &amp; Security</strong>, scroll down, and click <strong>Open Anyway</strong> next to Pasoti. Then open it again.</li>
+<li>If macOS says the app cannot be opened because Apple cannot check it, open <strong>System Settings &gt; Privacy &amp; Security</strong>, scroll down, and click <strong>Open Anyway</strong> next to Pasoti. Then open it again.</li>
 </ol>
-<p>If neither works, open Terminal and run this once, then open Pasoti normally:</p>
+<p>If macOS says Pasoti <strong>is damaged and can’t be opened</strong> and offers only <strong>Move to Trash</strong>, click <strong>Cancel</strong>. The app is not damaged: this beta is not yet registered with Apple, and some Macs react this way. The same fix works if the steps above do not. Make sure Pasoti is in your Applications folder, open <strong>Terminal</strong> (in Applications &gt; Utilities), paste this line, press Return, then open Pasoti normally:</p>
 <pre>xattr -dr com.apple.quarantine /Applications/Pasoti.app</pre>
 <p>Once it opens, you will see a box that says <strong>Drop a choral score here</strong>. To check which version you have, choose <strong>Pasoti &gt; About Pasoti</strong> from the menu bar.</p>
 
